@@ -44,49 +44,62 @@ function writedata($path, $post)
 /* Hàm thêm sản phẩm */
 function them($sku, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    if ($sku == '' || $name == '' || $old_price == '' || $new_price == '' || $prod_number == '') {
+    $ext='';
+    if (!$sku || !$name || !$old_price|| !$new_price || !$prod_number || !$_FILES['prod_thumb']['name']) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
-    } else {
-        $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
     }
+    else{
+        // Lay ra duoi anh
+        switch($_FILES['prod_thumb']['type']){
+            case 'image/jpeg' : $ext = 'jpg'; break;
+            case 'image/png' : $ext = 'png'; break;
+            case 'image/gif' : $ext = 'gif'; break;
+        }
+        
+        // Chi cho phep upload file anh JPG/JPEG, PNG hoac GIF
+        if($ext==''){
+            echo 'Khong cho phep upload file khac cac duoi sau: JPG, GIF, PNG';
+            exit;
+        }
+
+        // Dat ten file anh
+        $post['prod_thumb']= date('YmdHis').'-'.rand(100000, 999999).'.'.$ext;
+
+        // Tao thu muc img neu chua co
+        if(!is_dir('avatar/')) mkdir('avatar'); 
+
+        move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
+        $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
+        $post = writedata('data/product.txt', $post);
+        header('location: index.php?click=product');  
+    }
+
+
+    // move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
+    // $post = writedata('data/product.txt', $post);
+    // header('location: index.php?click=product');
+    // else {
+    //     $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
+    // }
     // elseif (isset($post[$sku])) {
     //     alert('Sản phẩm đã tồn tại'); // Không check đc tồn tại của sản phẩm
     // } elseif (!isset($_POST['sku'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'])) {
     //     alert('Bạn nhập thông tin chưa đầy đủ');
     // }
 }
-$ext='';
+
 if (isset($_POST['add_new'])) {
     $post = loaddata('data/product.txt');
     them($_POST['sku'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
-
-
-//Bắt lỗi hình ảnh
-if($_FILES['prod_thumb']==''){alert('Bạn chưa chọn hình ảnh');}
-else{
-    // Lay ra duoi anh
-    switch($_FILES['prod_thumb']['type']){
-        case 'image/jpeg' : $ext = 'jpg'; break;
-        case 'image/png' : $ext = 'png'; break;
-        case 'image/gif' : $ext = 'gif'; break;
-    }
-    
-    // Chi cho phep upload file anh JPG/JPEG, PNG hoac GIF
-    if($ext==''){
-        echo 'Khong cho phep upload file khac cac duoi sau: JPG, GIF, PNG';
-        exit;
-    }
-
-// Dat ten file anh
-$post['prod_thumb']= date('YmdHis').'-'.rand(100000, 999999).'.'.$ext;
-
-// Tao thu muc img neu chua co
-if(!is_dir('avatar/')){mkdir('avatar');}	
 }
+<<<<<<< HEAD
     move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
 }
+=======
+
+>>>>>>> b73916d3e64369a7aaf78292452b3624605eeb20
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12">
