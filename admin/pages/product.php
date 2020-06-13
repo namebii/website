@@ -12,11 +12,11 @@ function loaddata($path)
             $ar_product = explode('|\|', $str_product);
             if (count($ar_product) == 5) {
                 $post[$ar_product[0]] = [
-                    'name' => $ar_product[1],
-                    // 'prod_thumb' => $ar_product[2],
-                    'old_price' => (float) $ar_product[2],
-                    'new_price' => (float) $ar_product[3],
-                    'prod_number' => (float) $ar_product[4]
+                    'prod_thumb' => $ar_product[1],
+                    'name' => $ar_product[2],
+                    'old_price' => (float) $ar_product[3],
+                    'new_price' => (float) $ar_product[4],
+                    'prod_number' => (float) $ar_product[5]
                 ];
             }
         }
@@ -31,12 +31,12 @@ function writedata($path, $post)
     $file = fopen($path, 'w');
     $content = '';
     foreach ($post as $sku => $prod) {
-        $name = $prod['name'];
-        // $prod_thumb = $prod['prod_thumb'];
+        $prod_thumb = $prod['prod_thumb'];
+        $name = $prod['name'];        
         $old_price = $prod['old_price'];
         $new_price = $prod['new_price'];
         $prod_number = $prod['prod_number'];
-        $content .= "$sku|\|$name|\|$old_price|\|$new_price|\|$prod_number\n";
+        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n";
     }
     fwrite($file, $content);
     fclose($file);
@@ -149,8 +149,8 @@ if (isset($_POST['action'])) {
                                     <tr>
                                         <th style="width:20px">Chọn</th>
                                         <th class="table-ma">Mã</th>
-                                        <th class="table_ten">Tên</th>
-                                        <!-- <th class="table-hinh">Hình Đại Diện</th> -->
+                                        <th class="table-hinh">Hình Đại Diện</th>
+                                        <th class="table_ten">Tên</th>                                        
                                         <th class="table-dongia">Giá Gốc (VNĐ)</th>
                                         <th class="table-dongia">Giá Khuyến Mại (VNĐ)</th>
                                         <th class="table-soluong">Số Lượng</th>
@@ -164,8 +164,8 @@ if (isset($_POST['action'])) {
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-ma"><?= $sku ?></td>
-                                            <td class="table-ten"><?= $prod['name'] ?></td>
-                                            <!-- <td class="table-hinh"><?= $prod['prod_thumb'] ?></td> -->
+                                            <td class="table-hinh"><?= $prod['prod_thumb'] ?></td>
+                                            <td class="table-ten"><?= $prod['name'] ?></td>                                            
                                             <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
                                             <td class="table-soluong"><?= number_format($prod['prod_number']) ?></td>

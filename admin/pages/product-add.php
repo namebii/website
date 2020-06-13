@@ -65,41 +65,21 @@ function them($sku, $name, $old_price, $new_price, $prod_number, &$post)
         // Dat ten file anh
         $post['prod_thumb']= date('YmdHis').'-'.rand(100000, 999999).'.'.$ext;
 
-        // Tao thu muc img neu chua co
-        if(!is_dir('avatar/')) mkdir('avatar'); 
+        // Tạo thư mục image nếu chưa có
+        if(!is_dir('images/uploads/')) mkdir('uploads'); 
 
         move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
-        $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
+        $post[$sku] = ['prod_number' => $prod_number, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price];
         $post = writedata('data/product.txt', $post);
         header('location: index.php?click=product');  
     }
 
-
-    // move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
-    // $post = writedata('data/product.txt', $post);
-    // header('location: index.php?click=product');
-    // else {
-    //     $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
-    // }
-    // elseif (isset($post[$sku])) {
-    //     alert('Sản phẩm đã tồn tại'); // Không check đc tồn tại của sản phẩm
-    // } elseif (!isset($_POST['sku'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'])) {
-    //     alert('Bạn nhập thông tin chưa đầy đủ');
-    // }
 }
 
 if (isset($_POST['add_new'])) {
     $post = loaddata('data/product.txt');
     them($_POST['sku'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
 }
-<<<<<<< HEAD
-    move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
-    $post = writedata('data/product.txt', $post);
-    header('location: index.php?click=product');
-}
-=======
-
->>>>>>> b73916d3e64369a7aaf78292452b3624605eeb20
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12">
