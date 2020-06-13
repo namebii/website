@@ -49,20 +49,20 @@ function them($sku, $name, $old_price, $new_price, $prod_number, &$post)
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
     }
     else{
-        // Lay ra duoi anh
+        // Lấy ra đuôi ảnh
         switch($_FILES['prod_thumb']['type']){
             case 'image/jpeg' : $ext = 'jpg'; break;
             case 'image/png' : $ext = 'png'; break;
             case 'image/gif' : $ext = 'gif'; break;
         }
         
-        // Chi cho phep upload file anh JPG/JPEG, PNG hoac GIF
+        // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
         if($ext==''){
             echo 'Khong cho phep upload file khac cac duoi sau: JPG, GIF, PNG';
             exit;
         }
 
-        // Dat ten file anh
+        // Đặt tên file ảnh
         $post['prod_thumb']= date('YmdHis').'-'.rand(100000, 999999).'.'.$ext;
 
         // Tạo thư mục image nếu chưa có
