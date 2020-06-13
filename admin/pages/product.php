@@ -164,7 +164,7 @@ if (isset($_POST['action'])) {
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-ma"><?= $sku ?></td>
-                                            <td class="table-hinh"><?= $prod['prod_thumb'] ?></td>
+                                            <td class="table-hinh"><?= '<img src="uploads/'.$_FILES['prod_thumb']['name'].'">' ?></td>
                                             <td class="table-ten"><?= $prod['name'] ?></td>                                            
                                             <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
