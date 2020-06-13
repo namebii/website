@@ -83,8 +83,6 @@ $post['prod_thumb']= date('YmdHis').'-'.rand(100000, 999999).'.'.$ext;
 // Tao thu muc img neu chua co
 if(!is_dir('avatar/')){mkdir('avatar');}	
 }
-
-
     move_uploaded_file($_FILES['prod_thumb']['tmp_name'],'uploads/'.$_FILES['prod_thumb']['name']);
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
