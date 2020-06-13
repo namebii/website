@@ -1,0 +1,135 @@
+@font-face{font-family:'dinhit';src:url(../font/SFUEurostileBold.ttf);}
+@font-face{font-family:'dinhit-1';src:url(../font/SFUEurostileCondensed.ttf);}
+body{background:#f0f0f0}
+/*================================= Dinhit 404 =================================*/
+#dinhit-404{background:url('../images/bg.png') no-repeat center center #1d1d1d;color:#eee;font-family:Corbel,Arial,Helvetica,sans-serif;font-size:13px;padding-top:50px;padding-bottom:50px;height:850px}
+#dinhit-404 #rocket{width:275px;height:375px;background:url('../images/rocket.png') no-repeat;margin:0 auto 50px;position:relative}
+#dinhit-404 hgroup{display:block;margin:0 auto;width:850px;font-family:'Century Gothic',Calibri,'Myriad Pro',Arial,Helvetica,sans-serif;text-align:center}
+#dinhit-404 h1{color:#76D7FB;margin-bottom:5px;font-size:40px!important;text-shadow:3px 3px 0 #3D606D;font-weight:600;font-family:dinhit}
+#dinhit-404 h2{color:#9FE3FC;font-size:30px!important;font-weight:normal;font-family:dinhit-1}
+#dinhit-404 p.createdBy{font-size:15px;font-weight:normal;margin:50px;text-align:center;text-shadow:none}
+#dinhit-404 a,#dinhit-404 a:visited{text-decoration:none;outline:none;color:#97cae6}
+#dinhit-404 a:hover{border-bottom:1px dashed transparent}
+#dinhit-404 p{padding-bottom:25px;font-size:18px}
+#dinhit-404 span{font-size:18px}
+.steam1,.steam2{position:absolute;bottom:78px;left:50px;width:80px;height:80px;background:url('../images/steam.png') no-repeat;opacity:0.8}
+.steam2{background-position:left bottom}
+@media (max-width:480px){#dinhit-404{height:700px!important}#dinhit-404 hgroup{width:100%;padding:0 30px}#dinhit-404 h1{font-size:25px!important}#dinhit-404 h2{font-size:20px!important}}
+/*================================= END Dinhit 404 =================================*/
+.main{background:#fff;margin-bottom:30px;padding:20px}
+.fa-search:before{font-style:normal;font-family:fontawesome}
+h1{font-size:27px!important;margin-bottom:5px}
+h2{font-size:18px!important;border-bottom:1px solid #eee;padding-bottom:5px;line-height:1.5;text-transform:uppercase;width:100%;font-weight:600}
+h3{font-size:22px!important;margin-bottom:5px}
+h4{font-size:20px!important;margin-bottom:5px}
+h5{font-size:18px!important;margin-bottom:5px!important}
+p{margin-bottom:5px}
+.footer{background:#fff;background-size:cover;padding-top:20px;padding-bottom:5px}
+.footer a{color:#444}
+.form-check-input{margin-left:0!important}
+.form-check-label{margin-left:20px}
+.card-body{padding:10px!important}
+.card{border:0}
+.news h5{font-weight:600}
+.news img{border:1px solid #ddd}
+.owl-item{margin-right:0!important;width:275px!important}
+.owl-theme .owl-nav{position:absolute;top:-79px;right:0}
+button.owl-prev span,button.owl-next span{font-size:40px!important}
+.owl-theme .owl-nav [class*='owl-']{outline:none}
+.owl-theme .owl-nav [class*='owl-']:hover{background:none;color:#333}
+.product-list{padding:0!important;margin-top:10px;margin-bottom:20px}
+.mb-list{margin-bottom:10px}
+.pagination{margin:0 auto}
+.product-list img,.related-products-wrapper img{border-bottom:1px solid #ddd}
+.product-sidebar{padding-left:0}
+.list-group-item{border:none;padding:2px 10px;font-size:14px}
+.product-list a{color:#444}
+.product-list a:hover{color:#333;text-decoration:none}
+.btn.btn-success{padding:6px 10px;line-height:1;font-size:14px}
+.left-topbar{background:#2e81c3}
+.right-topbar{background:#f5921c;height:35px}
+.hotline img{margin-left:-35px}
+.hotline a{color:#fff;padding-left:10px;font-size:20px;font-weight:600}
+.product-main{background:#fff;border:1px solid #ddd;padding:10px}
+.product-images{border:1px solid #eee}
+.badge-container{z-index:999}
+.product-images img{width:100%}
+.badge-inner{position:absolute;background:#28a745!important;border-color:#28a745!important;color:#fff!important;display:table;text-align:center;height:40px;width:55px;line-height:40px;border-radius:0 15px 0 15px}
+.onsale{font-size:16px;font-weight:600}
+.breadcrumb{margin-bottom:15px;padding:5px 8px!important;background:#fff;margin-top:20px;line-height:1;border-radius:0}
+ol.breadcrumb{margin:0}
+.breadcrumb-item+.breadcrumb-item{font-size:15px}
+.breadcrumb-item+.breadcrumb-item::before{content:"\f054";font-family:fontawesome;font-size:12px}
+input#quantity{font-size:14px!important}
+.quantity.buttons_added{display:inline-block}
+.quantity.buttons_added input{text-align:center;height:36px!important}
+.single_add_to_cart_button{background:#e11b1e;border:1px solid #e11b1e;color:#fff;padding:5px 10px;text-transform:uppercase;font-size:16px;font-weight:600;border-radius:3px;height:35px}
+input{font-size:medium!important;line-height:normal}
+.woocommerce-Price-currencySymbol{margin-left:5px}
+.product-footer .container{padding:0;padding-top:20px}
+.product-tab ul{padding-left:0;margin-bottom:0}
+.product-tab li{display:inline-block;background:#ddd;padding:5px 10px;border:1px solid #ddd;margin-bottom:-1px;height:35px;width:33%;text-align:center;font-size:16px;font-weight:600}
+.product-tab li.active{background:#fff;border:1px solid #ddd;border-bottom:0}
+.product-footer .tab-panels{border:1px solid #ddd;padding:15px;font-size:15px}
+.related.related-products-wrapper{padding-top:20px;padding-bottom:20px}
+.related.related-products-wrapper h2{padding-bottom:10px}
+.price-wrapper ins{font-size:25px!important;text-decoration:none;margin-left:10px}
+.product-short-description{padding-top:10px;padding-bottom:10px;border-bottom:1px dashed #ddd;font-size:14px}
+.product_meta{font-size:14px;padding-top:5px}
+.product-sidebar-box{display:block;width:100%;background-color:#ddd;text-align:center;border:1px #eee solid;color:#3c3d41;font-size:14px!important;padding:5px;margin-top:40px}
+.product-single-sidebar{padding-bottom:20px}
+.product-single-sidebar p{font-size:14px}
+.product-single-sidebar select{width:100%;height:30px}
+.product-single-sidebar .product-sidebar-title,.product-category-sidebar .product-sidebar-title{background:#ddd;padding:7px 10px;font-size:16px!important;border-radius:3px 3px 0 0;margin-bottom:0}
+.product-single-sidebar .list-group,.product-category-sidebar ul{border:1px solid #ddd}
+.product-single-sidebar .content{border:1px solid #ddd;padding:5px 10px}
+.product-single-sidebar .content h3{font-size:15px!important}
+.product-single-sidebar .content img{border:1px solid #ddd}
+.product-category-sidebar{padding-bottom:20px}
+.header{height:55px;background:#51ac8e}
+.logo{padding-top:7px;float:left;background:#e3c246;height:55px}
+.logo img{height:40px}
+.menu{display:inline-block}
+.slider-home{padding-top:15px}
+.bg-light{background:none!important}
+.san-pham-hot{background:#fff;margin-bottom:15px}
+.san-pham-hot h2,.news h2{padding:5px 10px}
+.price{padding-bottom:5px}
+.gia-km{font-size:14px;text-decoration:line-through}
+.gia-goc{font-size:16px;color:red;font-weight:600}
+.san-pham-hot .card-title{font-size:16px!important}
+.list-sp,.list-sp-hot{text-align:center;padding-top:10px;padding-bottom:10px}
+.list-sp img{display:block;width:180px;height:180px;margin:15px auto;transition:all ease 300ms}
+.san-pham-hot .owl-theme .owl-nav{top:-79px}
+.slider{display:block;float:left}
+.slider img{height:273px}
+.banner-right{float:right;padding:0;padding-left:15px}
+.banner-right img{width:100%;margin-bottom:10px}
+.carousel-indicators{bottom:-19%;margin:0;background:#fff;height:50px;line-height:30px}
+.carousel-indicators li{text-indent:0;background:none;width:33.3%;text-align:center;height:30px;font-size:12px!important;height:30px}
+.carousel-indicators li.giua{border-left:1px solid #ddd;border-right:1px solid #ddd}
+.row.news{background:#fff;margin:0;margin-top:15px;margin-bottom:15px}
+.col-12.news{padding:0;margin-top:1px}
+.card.first,.card.instock,.card.last{margin:0 10px}
+.header .btn-outline-success{color:#444;border:none;position:absolute;right:9%;background:none}
+.form-inline .form-control{position:relative;float:left;width:230px;height:35px;margin:3px 0 0 10px!important;font-size:13px!important}
+.footer h3,.footer h4{font-size:16px!important;font-weight:500;margin-bottom:5px}
+.footer ul{margin:0;padding:0}
+.footer ul li{list-style:none;font-size:14px;color:#3399d2;padding:5px 0}
+.copy{background:#eee;padding:10px 0;margin-top:20px}
+.copy span{font-size:12px;color:#444}
+.tuvan p,.hotro p{color:#444}
+.tuvan a{font-size:20px;font-weight:bold;color:#d0021b!important}
+.hotro img{width:25%;border:1px solid #eee;padding:2px}
+p.card-text{font-size:14px}
+.navbar a{color:#fff!important}
+
+
+@media (max-width:768px){/* == iPad == */
+
+}
+@media (max-width:480px){/* == Mobile == */
+    .banner-right{display:none}
+    .carousel-indicators{line-height:1.5}
+    .slider{padding-bottom:55px}
+}
