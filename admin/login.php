@@ -8,7 +8,7 @@ function loaddata($path)
   $ar_acc = [];
   $file_acc = fopen($path, 'r');
   while (!feof($file_acc)) {
-    $str_acc = fgets($file_acc); // Tách file thành nhiều dòng cho nhiều tài khoản
+    $str_acc = fgets($file_acc);
     if (isset($str_acc)) {
       $list_str_acc = explode('|*', $str_acc);
       if (count($list_str_acc) == 5) {
@@ -50,7 +50,7 @@ if (isset($_POST['user'], $_POST['pass'])) {
   }
 
   if ($userlogin) {
-    // Bat Flag de lam dieu kien
+    // Bật Flag để làm điều kiện
     $_SESSION['login'] = true;
     $_SESSION['user'] = $userlogin['name'];
     $_SESSION['avatar'] = $userlogin['avatar'];
@@ -133,12 +133,12 @@ if (isset($_POST['user'], $_POST['pass'])) {
             <div class="clearfix"></div>
 
             <div class="separator">
-              <p class="change_link">Bạn chưa có tài khoản?
+              <!-- <p class="change_link">Bạn chưa có tài khoản?
                 <a href="#signup" class="to_register"> Đăng ký ngay </a>
               </p>
 
               <div class="clearfix"></div>
-              <br />
+              <br /> -->
 
               <div>
                 <h1><i class="fa fa-paw"></i> Welcome to Taki's Website!</h1>
@@ -149,7 +149,7 @@ if (isset($_POST['user'], $_POST['pass'])) {
         </section>
       </div>
 
-      <div id="register" class="animate form registration_form">
+      <!-- <div id="register" class="animate form registration_form">
         <section class="login_content">
           <form>
             <h1>Đăng ký tài khoản</h1>
@@ -183,7 +183,7 @@ if (isset($_POST['user'], $_POST['pass'])) {
             </div>
           </form>
         </section>
-      </div>
+      </div> -->
     </div>
   </div>
 </body>

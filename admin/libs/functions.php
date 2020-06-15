@@ -44,6 +44,7 @@ function dd($data){
 function ddt($message = ""){
     echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
 }
+
 /* Hàm xem mảng */
 function xemmang($array)
 {
@@ -199,10 +200,5 @@ function ptbac2nhieuo($a,$b,$c,&$x1,&$x2){
 // $result_ptbac2nhieuo = ptbac2nhieuo(1,-5,6,$x1,$x2);
 // echo 'x1= '.$x1.'<br>';
 // echo 'x2= '.$x2;
-
-
-
-
-
 
 ?>
