@@ -1,8 +1,20 @@
 <?php
+if (!isset($_GET['sku']) ||  !$_GET['sku']) {
+    header('location: index.php?click=product');
+}
 include 'core/product-core.php';
-if (isset($_POST['add_new'])) {
-    $post = loaddata('data/product.txt');
-    them($_POST['sku'], /*$_FILES['prod_thumb']['tmp_name'],*/ $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+$post = loaddata('data/sanpham.txt');
+$product = null;
+if (isset($post[$_GET['sku']])) {
+    $product = $post[$_GET['sku']];
+} else {
+    header('location: index.php?click=product');
+}
+// Tiến hành cập nhật dữ liệu
+if (isset($_POST['sku'])) {
+    sua($_POST['sku'],/*$_POST['prod_thumb'],*/ $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    $post = writedata('data/product.txt', $post);
+    header('location: index.php?click=product');
 }
 ?>
 <div class="right_col" role="main">
@@ -17,7 +29,7 @@ if (isset($_POST['add_new'])) {
                 <form class="form-label-left input_mask" method="post" enctype="multipart/form-data" action="">
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="sku" placeholder="Mã sản phẩm" value="<?= $_POST['sku'] ?? '' ?>">
+                        <input type="text" class="form-control has-feedback-left" name="sku" placeholder="Mã sản phẩm" readonly value="<?= $_POST['sku'] ?? '' ?>">
                         <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                     </div>
 

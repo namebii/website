@@ -1,5 +1,4 @@
 <?php
-include 'libs/functions.php';
 session_destroy();
 setcookie('login',false,time()-1);
 setcookie('name','',time()-1);

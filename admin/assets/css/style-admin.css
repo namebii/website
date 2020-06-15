@@ -34,7 +34,7 @@
 .table-taki td.table-thanhtien{text-align:right}
 .table-taki td.table-soluong{text-align:center}
 .table-taki td.table-dongia{text-align:right}
-.table-taki .table-hanhdong{width:100px}
+.table-taki .table-hanhdong{width:120px;text-align:center}
 .site_title i{border:none;margin-right:5px!important}
 .site_title{font-size:18px!important}
 input.file-upload{padding:3.5px;float:right;text-align:right}
