@@ -16,6 +16,7 @@ if (isset($_POST['sku'])) {
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
 }
+xemmang($post);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12">
@@ -29,27 +30,27 @@ if (isset($_POST['sku'])) {
                 <form class="form-label-left input_mask" method="post" enctype="multipart/form-data" action="">
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="sku" placeholder="Mã sản phẩm" readonly value="<?= $_POST['sku'] ?? '' ?>">
+                        <input type="text" class="form-control has-feedback-left" name="sku" placeholder="Mã sản phẩm" readonly value="<?= $_GET['sku'] ?? '' ?>">
                         <span class="fa fa-barcode form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm" value="<?= $_POST['name'] ?? '' ?>">
+                        <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm" value="<?= $_GET['sku']['name'] ?? '' ?>">
                         <span class="fa fa-cc-stripe form-control-feedback right" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $_POST['old_price'] ?? '' ?>">
+                        <input type="text" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $_GET['old_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $_POST['new_price'] ?? '' ?>">
+                        <input type="text" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $_GET['new_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $_POST['prod_number'] ?? '' ?>">
+                        <input type="text" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $_GET['prod_number'] ?? '' ?>">
                         <span class="fa fa-sort-numeric-asc form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
