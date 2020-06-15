@@ -43,9 +43,9 @@ $post = loaddata('data/product.txt');
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
                                             <td class="table-soluong"><?= number_format($prod['prod_number']) ?></td>
                                             <td style="padding:7px;text-align:center">
-                                                <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=product-edit&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/show.png"></a>
+                                                <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=product-show&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/show.png"></a>
                                                 <a data-toggle="tooltip" alt="Sửa" title="Sửa" href="index.php?click=product-edit&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/edit.png"></a>
-                                                <a data-toggle="tooltip" alt="Xóa" title="Xóa" href="index.php?click=product-remove&sku=<?= $sku ?>" onclick="return confirm(\'Bạn có muốn xóa hay không\');"><img class="hanh-dong-img" src="images/delete.png"></a>
+                                                <a data-toggle="tooltip" alt="Xóa" title="Xóa" href="index.php?click=product-remove&sku=<?= $sku ?>" onclick="return confirm('Bạn có muốn xóa hay không')"><img class="hanh-dong-img" src="images/delete.png"></a>
                                             </td>
                                         </tr>
                                     <?php

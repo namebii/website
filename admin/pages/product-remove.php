@@ -6,9 +6,9 @@ if(!isset($_GET['sku'])||  !$_GET['sku'])
     header('location: index.php?click=product');
 }
 // Tiến hành cập nhật dữ liệu
-if(isset($_POST['sku']))
+if(isset($_GET['sku']))
 {
-    xoa($_POST['sku'],$post);
+    xoa($_GET['sku'],$post);
     $post = writedata('data/product.txt',$post);
     header('location: index.php?click=product');
 }
