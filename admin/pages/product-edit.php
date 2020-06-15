@@ -16,7 +16,7 @@ if (isset($_POST['sku'])) {
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
 }
-xemmang($post);
+// dd($_GET);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12">
@@ -35,7 +35,7 @@ xemmang($post);
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm" value="<?= $_GET['sku']['name'] ?? '' ?>">
+                        <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm" value="<?= $_POST['sku']['name'] ?? '' ?>">
                         <span class="fa fa-cc-stripe form-control-feedback right" aria-hidden="true"></span>
                     </div>
 

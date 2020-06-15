@@ -8,13 +8,13 @@ function loaddata($path)
         $str_product = fgets($file); // Tách file thành nhiều dòng sản phẩm
         if ($str_product) {
             $ar_product = explode('|\|', $str_product);
-            if (count($ar_product) == 5) {
+            if (count($ar_product) == 6) {
                 $post[$ar_product[0]] = [
                     'name' => $ar_product[1],
-                    // 'prod_thumb' => $ar_product[2],
-                    'old_price' => (float) $ar_product[2],
-                    'new_price' => (float) $ar_product[3],
-                    'prod_number' => (float) $ar_product[4]
+                    'prod_thumb' => $ar_product[2],
+                    'old_price' => (float) $ar_product[3],
+                    'new_price' => (float) $ar_product[4],
+                    'prod_number' => (float) $ar_product[5]
                 ];
             }
         }
@@ -30,55 +30,55 @@ function writedata($path, $post)
     $content = '';
     foreach ($post as $sku => $prod) {
         $name = $prod['name'];
-        // $prod_thumb = $prod['prod_thumb'];
+        $prod_thumb = $prod['prod_thumb'];
         $old_price = $prod['old_price'];
         $new_price = $prod['new_price'];
         $prod_number = $prod['prod_number'];
-        $content .= "$sku|\|$name|\|$old_price|\|$new_price|\|$prod_number\n"; /* |\|$prod_thumb */
+        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n"; /* |\|$prod_thumb */
     }
     fwrite($file, $content);
     fclose($file);
     return loaddata($path);
 }
 
-// $structure = 'uploads/';
+$structure = 'uploads/';
 /* Hàm thêm sản phẩm */
-function them($sku, /*$prod_thumb,*/ $name, $old_price, $new_price, $prod_number, &$post)
+function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    // $ext = '';
-    if (!$sku || /*!$_FILES['prod_thumb']['tmp_name'] ||*/ !$name || !$old_price || !$new_price || !$prod_number) {
+    $ext = '';
+    if (!$sku || !$_FILES['prod_thumb']['tmp_name'] || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
     } elseif(isset($post[$sku])) {
         alert('Sản phẩm đã tồn tại');
     }else{
-    //     // Lấy ra đuôi ảnh
-    //     switch ($_FILES['prod_thumb']['type']) {
-    //         case 'image/jpeg':
-    //             $ext = 'jpg';
-    //             break;
-    //         case 'image/png':
-    //             $ext = 'png';
-    //             break;
-    //         case 'image/gif':
-    //             $ext = 'gif';
-    //             break;
-    //     }
+        // Lấy ra đuôi ảnh
+        switch ($_FILES['prod_thumb']['type']) {
+            case 'image/jpeg':
+                $ext = 'jpg';
+                break;
+            case 'image/png':
+                $ext = 'png';
+                break;
+            case 'image/gif':
+                $ext = 'gif';
+                break;
+        }
 
-    //     // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
-    //     if ($ext == '') {
-    //         alert('Không cho phép upload file khác các đuôi sau: JPG, GIF, PNG');
-    //         exit;
-    //     }
+        // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
+        if ($ext == '') {
+            alert('Không cho phép upload file khác các đuôi sau: JPG, GIF, PNG');
+            exit;
+        }
 
-    //     // Đặt tên file ảnh
-    //     $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+        // Đặt tên file ảnh
+        $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
 
-    //     // Tạo thư mục image nếu chưa có
-    //     if (!is_dir($structure)) mkdir($structure);
+        // Tạo thư mục image nếu chưa có
+        if (!is_dir($structure)) mkdir($structure);
 
-    //     move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['prod_thumb']);
-    //     echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
-        $post[$sku] = [/*'prod_thumb' => $prod_thumb,*/ 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price,'prod_number' => $prod_number];
+        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['prod_thumb']) ? 'Thành công':'Lỗi    ';
+        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
+        $post[$sku] = ['prod_thumb' => $prod_thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price,'prod_number' => $prod_number];
         $post = writedata('data/product.txt', $post);
         header('location: index.php?click=product');
     }

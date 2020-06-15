@@ -1,6 +1,7 @@
 <?php
 include 'core/product-core.php';
 $post = loaddata('data/product.txt');
+xemmang($_FILES);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
@@ -8,8 +9,8 @@ $post = loaddata('data/product.txt');
             <div class="x_title">
                 <h2>Tất cả sản phẩm <small><?= $tb['sku'] ?? '' ?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
+                    <li><a href="index.php?click=product-add" class="btn btn-success text-light">Thêm</a></li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -22,7 +23,7 @@ $post = loaddata('data/product.txt');
                                     <tr>
                                         <th style="width:20px">Chọn</th>
                                         <th class="table-ma">Mã</th>
-                                        <!-- <th class="table-hinh">Hình Đại Diện</th> -->
+                                        <th class="table-hinh">Hình Đại Diện</th>
                                         <th class="table_ten">Tên</th>
                                         <th class="table-dongia">Giá Gốc (VNĐ)</th>
                                         <th class="table-dongia">Giá Khuyến Mại (VNĐ)</th>
@@ -37,7 +38,7 @@ $post = loaddata('data/product.txt');
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-ma"><?= $sku ?></td>
-                                            <!-- <td class="table-hinh"></td> -->
+                                            <td class="table-hinh"><img src="<?=$structure.$post['prod_thumb']?>" width="50"></td>
                                             <td class="table-ten"><?= $prod['name'] ?></td>
                                             <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
