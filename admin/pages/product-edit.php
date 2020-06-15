@@ -3,7 +3,7 @@ if (!isset($_GET['sku']) ||  !$_GET['sku']) {
     header('location: index.php?click=product');
 }
 include 'core/product-core.php';
-$post = loaddata('data/sanpham.txt');
+$post = loaddata('data/product.txt');
 $product = null;
 if (isset($post[$_GET['sku']])) {
     $product = $post[$_GET['sku']];
