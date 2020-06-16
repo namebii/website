@@ -54,15 +54,14 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         alert('Sản phẩm đã tồn tại');
     } else {
 
-        // Vị trí file lưu tạm trong server
-        $target_file   = $target_dir . basename($_FILES['prod_thumb']['name']);
-        $allowUpload   = true;
-        // Lấy phần mở rộng của file
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-        $maxfilesize   = 800000; //(bytes)
-        // Những loại file được phép upload
-        $allowtypes    = array('jpg', 'jpeg', 'png', 'gif');
-
+        // // Vị trí file lưu tạm trong server
+        // $target_file   = $target_dir . basename($_FILES['prod_thumb']['name']);
+        // $allowUpload   = true;
+        // // Lấy phần mở rộng của file
+        // $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        // $maxfilesize   = 800000; //(bytes)
+        // // Những loại file được phép upload
+        // $allowtypes    = ['jpg', 'jpeg', 'png', 'gif'];
 
         // if (isset($_POST['add_new'])) {
         //     // Kiểm tra xem có phải là ảnh
@@ -76,71 +75,66 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         //     }
         // }
 
-        // Kiểm tra nếu file đã tồn tại thì không cho phép ghi đè
-        if (file_exists($target_file)) {
-            echo 'File đã tồn tại.';
-            $allowUpload = false;
-        }
-        // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
-        if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
-            echo 'Không được upload ảnh lớn hơn $maxfilesize (bytes).';
-            $allowUpload = false;
-        }
-
-
-        // Kiểm tra kiểu file
-        if (!in_array($imageFileType, $allowtypes)) {
-            echo 'Chỉ được upload các định dạng JPG, PNG, JPEG, GIF';
-            $allowUpload = false;
-        }
-
-        // Check if $upload Ok is set to 0 by an error
-        if ($allowUpload) {
-            if (move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_file)) {
-                echo 'File' . basename($_FILES['prod_thumb']['name']) .
-                    'Đã upload thành công';
-            } else {
-                echo 'Có lỗi xảy ra khi upload file.';
-            }
-        } else {
-            echo 'Không upload được file!';
-        }
-
-        // Đặt tên file ảnh
-        $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
-        // Tạo thư mục image nếu chưa có
-        // $structure = 'uploads/';
-        // if (!is_dir($structure)){mkdir($structure,777);}
-        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], 'uploads/' . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
-
-
-        // if (isset($_FILES['prod_thumb'])) {
-        //     // Lấy ra đuôi ảnh
-        //     switch ($_FILES['prod_thumb']['type']) {
-        //         case 'image/jpeg':
-        //             $ext = 'jpg';
-        //             break;
-        //         case 'image/png':
-        //             $ext = 'png';
-        //             break;
-        //         case 'image/gif':
-        //             $ext = 'gif';
-        //             break;
-        //     }
-        //     // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
-        //     if ($ext == '') {
-        //         alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
-        //         exit;
-        //     }
-        //     // Đặt tên file ảnh
-        //     $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
-        //     // Tạo thư mục image nếu chưa có
-        //     // $structure = 'uploads/';
-        //     // if (!is_dir($structure)){mkdir($structure,777);}
-        //     echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], 'uploads/' . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
+        // // Kiểm tra nếu file đã tồn tại thì không cho phép ghi đè
+        // if (file_exists($target_file)) {
+        //     alert('File đã tồn tại.');
+        //     $allowUpload = false;
+        // }
+        // // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
+        // if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
+        //     alert('Không được upload ảnh lớn hơn $maxfilesize (bytes).');
+        //     $allowUpload = false;
         // }
 
 
+        // // Kiểm tra kiểu file
+        // if (!in_array($imageFileType, $allowtypes)) {
+        //     alert('Chỉ được upload các định dạng JPG, PNG, JPEG, GIF');
+        //     $allowUpload = false;
+        // }
+
+        // // Check if $upload Ok is set to 0 by an error
+        // if ($allowUpload) {
+        //     if (move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_file)) {
+        //         echo 'File' . basename($_FILES['prod_thumb']['name']) . 'Đã upload thành công';
+        //     } else {
+        //         alert('Có lỗi xảy ra khi upload file.');
+        //     }
+        // } else {
+        //     alert('Không upload được file!');
+        // }
+
+        if (isset($_FILES['prod_thumb'])) {
+            // Lấy ra đuôi ảnh
+            switch ($_FILES['prod_thumb']['type']) {
+                case 'image/jpeg':
+                    $ext = 'jpg';
+                    break;
+                case 'image/png':
+                    $ext = 'png';
+                    break;
+                case 'image/gif':
+                    $ext = 'gif';
+                    break;
+            }
+            // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
+            if ($ext == '') {
+                alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
+                exit;
+            }
+            $maxfilesize   = 80; //(bytes)
+            // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
+            if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
+                alert('Không được upload ảnh lớn hơn ' . $maxfilesize . ' (bytes)');
+            }
+
+            // Đặt tên file ảnh
+            $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+            // Tạo thư mục image nếu chưa có
+            // $target_dir = 'uploads/';
+            // if (!is_dir($target_dir)){mkdir($target_dir,777);}
+            echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
+        }
         $post[$sku] = [$_FILES['prod_thumb']['tmp_name'] => $prod_thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
         $post = writedata('data/product.txt', $post);
         header('location: index.php?click=product');
