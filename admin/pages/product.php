@@ -1,8 +1,6 @@
 <?php
 include 'core/product-core.php';
 $post = loaddata('data/product.txt');
-
-// dd($post);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
@@ -39,7 +37,7 @@ $post = loaddata('data/product.txt');
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-ma"><?= $sku ?></td>
-                                            <td class="table-hinh"><img src="<?=$target_dir.$post['prod_thumb']?>" width="50"></td>
+                                            <td class="table-hinh"><img src="images/uploads/<?= $prod['prod_thumb'] ?>" width="50"></td>
                                             <td class="table-ten"><?= $prod['name'] ?></td>
                                             <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>

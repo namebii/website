@@ -10,8 +10,8 @@ function loaddata($path)
             $ar_product = explode('|\|', $str_product);
             if (count($ar_product) == 6) {
                 $post[$ar_product[0]] = [
-                    'name' => $ar_product[1],
-                    'prod_thumb' => $ar_product[2],
+                    'name' => $ar_product[2],
+                    'prod_thumb' => $ar_product[1],
                     'old_price' => (float) $ar_product[3],
                     'new_price' => (float) $ar_product[4],
                     'prod_number' => (float) $ar_product[5]
@@ -41,12 +41,11 @@ function writedata($path, $post)
     return loaddata($path);
 }
 
-//Thư mục bạn sẽ lưu file upload
-$target_dir = 'uploads/';
 
 /* Hàm thêm sản phẩm */
 function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
+    $target_dir = './images/uploads/';//Thư mục bạn sẽ lưu file upload
     $ext = '';
     if (!$sku || !$prod_thumb || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
@@ -122,7 +121,7 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
                 alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
                 exit;
             }
-            $maxfilesize   = 80; //(bytes)
+            $maxfilesize   = 10485760; //10(MB)
             // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
             if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
                 alert('Không được upload ảnh lớn hơn ' . $maxfilesize . ' (bytes)');
@@ -133,10 +132,10 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
             // Tạo thư mục image nếu chưa có
             // $target_dir = 'uploads/';
             // if (!is_dir($target_dir)){mkdir($target_dir,777);}
-            echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
+            alert(move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra');
         }
-        $post[$sku] = [$_FILES['prod_thumb']['tmp_name'] => $prod_thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
-        $post = writedata('data/product.txt', $post);
+        $post[$sku] = ['prod_thumb' => $post['prod_thumb'], 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
+        writedata('data/product.txt', $post);
         header('location: index.php?click=product');
     }
 }
