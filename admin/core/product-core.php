@@ -64,17 +64,17 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         $allowtypes    = array('jpg', 'jpeg', 'png', 'gif');
 
 
-        if (isset($_POST['add_new'])) {
-            // Kiểm tra xem có phải là ảnh
-            $check = getimagesize($_FILES['prod_thumb']['tmp_name']);
-            if ($check !== false) {
-                echo 'Đây là file ảnh - ' . $check['mime'] . '.';
-                $allowUpload = true;
-            } else {
-                echo 'Không phải file ảnh.';
-                $allowUpload = false;
-            }
-        }
+        // if (isset($_POST['add_new'])) {
+        //     // Kiểm tra xem có phải là ảnh
+        //     $check = getimagesize($_FILES['prod_thumb']['tmp_name']);
+        //     if ($check !== false) {
+        //         echo 'Đây là file ảnh - ' . $check['mime'] . '.';
+        //         $allowUpload = true;
+        //     } else {
+        //         echo 'Không phải file ảnh.';
+        //         $allowUpload = false;
+        //     }
+        // }
 
         // Kiểm tra nếu file đã tồn tại thì không cho phép ghi đè
         if (file_exists($target_file)) {
