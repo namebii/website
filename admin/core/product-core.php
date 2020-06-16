@@ -41,8 +41,7 @@ function writedata($path, $post)
     return loaddata($path);
 }
 
-//Thư mục bạn sẽ lưu file upload
-$target_dir = 'uploads/product/';
+
 
 /* Hàm thêm sản phẩm */
 function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
@@ -72,6 +71,9 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
                 alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
                 exit;
             }
+
+            //Thư mục bạn sẽ lưu file upload
+            $target_dir = 'uploads/product/';
 
             // Vị trí file lưu tạm trong server
             $target_file   = $target_dir . basename($_FILES["prod_thumb"]["name"]);
@@ -111,7 +113,7 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         }
         $post[$sku] = [$post['prod_thumb'] => $prod_thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
         $post = writedata('data/product.txt', $post);
-        header('location: index.php?click=product');
+        // header('location: index.php?click=product');
     }
 }
 
