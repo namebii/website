@@ -74,10 +74,10 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
             }
 
             // Thư mục bạn sẽ lưu file upload
-            $target_dir    = "img/";
+            $target_dir    = "uploads/product/";
 
             // Vị trí file lưu tạm trong server
-            $target_file   = $target_dir . basename($_FILES["thumb"]["name"]);
+            $target_file   = $target_dir . basename($_FILES["prod_thumb"]["name"]);
             $allowUpload   = true;
 
             // Kiểm tra nếu file đã tồn tại thì không cho phép ghi đè
@@ -88,12 +88,12 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
 
             $max_filesize   = 800000; //(bytes)
             // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
-            if ($_FILES["thumb"]["size"] > $max_filesize) {
+            if ($_FILES["prod_thumb"]["size"] > $max_filesize) {
                 echo "Không được upload ảnh lớn hơn $max_filesize (bytes). ";
                 $allowUpload = false;
             }
             // Đặt tên file ảnh
-            $post['thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+            $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
 
             // Tạo thư mục image nếu chưa có
             if (!is_dir($target_dir)) {
@@ -102,8 +102,8 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
 
             // Check if $upload Ok is set to 0 by an error
             if ($allowUpload) {
-                if (move_uploaded_file($_FILES["thumb"]["tmp_name"], $target_dir . $post['thumb'])) {
-                    echo "File " . basename($_FILES["thumb"]["name"]) . " Đã upload thành công";
+                if (move_uploaded_file($_FILES["prod_thumb"]["tmp_name"], $target_dir . $post['prod_thumb'])) {
+                    echo "File " . basename($_FILES["prod_thumb"]["name"]) . " Đã upload thành công";
                 } else {
                     echo "Có lỗi xảy ra khi upload file.";
                 }
