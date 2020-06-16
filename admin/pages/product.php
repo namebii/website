@@ -1,7 +1,8 @@
 <?php
 include 'core/product-core.php';
 $post = loaddata('data/product.txt');
-xemmang($_FILES);
+// xemmang($_FILES);
+// dd($post);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">

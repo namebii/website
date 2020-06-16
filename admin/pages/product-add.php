@@ -2,7 +2,7 @@
 include 'core/product-core.php';
 if (isset($_POST['add_new'])) {
     $post = loaddata('data/product.txt');
-    them($_POST['sku'], $post['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    them($_POST['sku'], $_FILES['prod_thumb']['tmp_name'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
 }
 ?>
 <div class="right_col" role="main">

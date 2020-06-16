@@ -74,10 +74,9 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
 
         // Tạo thư mục image nếu chưa có
-        if (!is_dir($structure)) mkdir($structure);
+        if (!is_dir($structure)) {mkdir($structure);}
 
-        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['prod_thumb']) ? 'Thành công':'Lỗi    ';
-        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra';
+        echo move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $structure . $post['prod_thumb']) ? 'Thành công':'Lỗi';
         $post[$sku] = ['prod_thumb' => $prod_thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price,'prod_number' => $prod_number];
         $post = writedata('data/product.txt', $post);
         header('location: index.php?click=product');

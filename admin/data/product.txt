@@ -1,2 +1,2 @@
 prod_thumb|\|2|\|2|\|2|\|2|\|2
-a1|\||\|Sản phẩm 1|\|20000|\|19000|\|5
+a1|\|Sản phẩm 1|\|/Applications/XAMPP/xamppfiles/temp/phpRkfNDN|\|20000|\|19000|\|5
