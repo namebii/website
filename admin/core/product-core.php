@@ -122,7 +122,7 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
                 alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
                 exit;
             }
-            $maxfilesize   = 80; //(bytes)
+            $maxfilesize   = 8000; //(bytes)
             // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
             if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
                 alert('Không được upload ảnh lớn hơn ' . $maxfilesize . ' (bytes)');
