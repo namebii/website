@@ -53,56 +53,6 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         alert('Sản phẩm đã tồn tại');
     } else {
 
-        // // Vị trí file lưu tạm trong server
-        // $target_file   = $target_dir . basename($_FILES['prod_thumb']['name']);
-        // $allowUpload   = true;
-        // // Lấy phần mở rộng của file
-        // $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-        // $maxfilesize   = 800000; //(bytes)
-        // // Những loại file được phép upload
-        // $allowtypes    = ['jpg', 'jpeg', 'png', 'gif'];
-
-        // if (isset($_POST['add_new'])) {
-        //     // Kiểm tra xem có phải là ảnh
-        //     $check = getimagesize($_FILES['prod_thumb']['tmp_name']);
-        //     if ($check !== false) {
-        //         echo 'Đây là file ảnh - ' . $check['mime'] . '.';
-        //         $allowUpload = true;
-        //     } else {
-        //         echo 'Không phải file ảnh.';
-        //         $allowUpload = false;
-        //     }
-        // }
-
-        // // Kiểm tra nếu file đã tồn tại thì không cho phép ghi đè
-        // if (file_exists($target_file)) {
-        //     alert('File đã tồn tại.');
-        //     $allowUpload = false;
-        // }
-        // // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
-        // if ($_FILES['prod_thumb']['size'] > $maxfilesize) {
-        //     alert('Không được upload ảnh lớn hơn $maxfilesize (bytes).');
-        //     $allowUpload = false;
-        // }
-
-
-        // // Kiểm tra kiểu file
-        // if (!in_array($imageFileType, $allowtypes)) {
-        //     alert('Chỉ được upload các định dạng JPG, PNG, JPEG, GIF');
-        //     $allowUpload = false;
-        // }
-
-        // // Check if $upload Ok is set to 0 by an error
-        // if ($allowUpload) {
-        //     if (move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_file)) {
-        //         echo 'File' . basename($_FILES['prod_thumb']['name']) . 'Đã upload thành công';
-        //     } else {
-        //         alert('Có lỗi xảy ra khi upload file.');
-        //     }
-        // } else {
-        //     alert('Không upload được file!');
-        // }
-
         if (isset($_FILES['prod_thumb'])) {
             // Lấy ra đuôi ảnh
             switch ($_FILES['prod_thumb']['type']) {
