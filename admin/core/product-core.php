@@ -42,7 +42,7 @@ function writedata($path, $post)
 }
 
 //Thư mục bạn sẽ lưu file upload
-$target_dir = 'uploads/';
+$target_dir = 'uploads/product';
 
 /* Hàm thêm sản phẩm */
 function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
