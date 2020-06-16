@@ -115,3 +115,4 @@ function xoa($sku, &$post)
         alert('Sản phẩm không tồn tại');
     }
 }
+123
