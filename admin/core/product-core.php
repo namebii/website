@@ -14,7 +14,7 @@ function loaddata($path)
                     'prod_thumb' => $ar_product[2],
                     'old_price' => (float) $ar_product[3],
                     'new_price' => (float) $ar_product[4],
-                    'prod_number' => (float) $ar_product[5]
+                    'prod_number' => (float) $ar_product[6]
                 ];
             }
         }
