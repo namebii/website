@@ -34,7 +34,7 @@ function writedata($path, $post)
         $old_price = $prod['old_price'];
         $new_price = $prod['new_price'];
         $prod_number = $prod['prod_number'];
-        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n"; /* |\|$prod_thumb */
+        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n";
     }
     fwrite($file, $content);
     fclose($file);
@@ -150,7 +150,7 @@ function sua($sku, $name, $old_price, $new_price, $prod_number, &$post)
         alert('Số lượng phải là chữ số');
     } elseif (!isset($post[$sku])) {
         alert('Sản phẩm không tồn tại');
-    } else { //elseif (isset($post[$sku]))
+    } else {
         $post[$sku] = ['name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
     }
 }
