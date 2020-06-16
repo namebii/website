@@ -10,8 +10,8 @@ function loaddata($path)
             $ar_product = explode('|\|', $str_product);
             if (count($ar_product) == 6) {
                 $post[$ar_product[0]] = [
-                    'name' => $ar_product[2],
                     'prod_thumb' => $ar_product[1],
+                    'name' => $ar_product[2],                    
                     'old_price' => (float) $ar_product[3],
                     'new_price' => (float) $ar_product[4],
                     'prod_number' => (float) $ar_product[5]
@@ -34,7 +34,7 @@ function writedata($path, $post)
         $old_price = $prod['old_price'];
         $new_price = $prod['new_price'];
         $prod_number = $prod['prod_number'];
-        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n"; /* |\|$prod_thumb */
+        $content .= "$sku|\|$prod_thumb|\|$name|\|$old_price|\|$new_price|\|$prod_number\n";
     }
     fwrite($file, $content);
     fclose($file);
@@ -45,7 +45,7 @@ function writedata($path, $post)
 /* Hàm thêm sản phẩm */
 function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    $target_dir = './images/uploads/';//Thư mục bạn sẽ lưu file upload
+    $target_dir = './images/uploads/'; //Thư mục bạn sẽ lưu file upload
     $ext = '';
     if (!$sku || !$prod_thumb || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
@@ -115,4 +115,3 @@ function xoa($sku, &$post)
         alert('Sản phẩm không tồn tại');
     }
 }
-123
