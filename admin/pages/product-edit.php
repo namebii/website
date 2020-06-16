@@ -12,11 +12,10 @@ if (isset($post[$_GET['sku']])) {
 }
 // Tiến hành cập nhật dữ liệu
 if (isset($_POST['sku'])) {
-    sua($_POST['sku'],$_FILES['prod_thumb']['tmp_name'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    sua($_POST['sku'],/*$_FILES['prod_thumb']['tmp_name'],*/ $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
 }
-// dd($_GET);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12">
@@ -54,10 +53,10 @@ if (isset($_POST['sku'])) {
                         <span class="fa fa-sort-numeric-asc form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
-                    <div class="col-md-6 col-sm-6  form-group">
+                    <!-- <div class="col-md-6 col-sm-6  form-group">
                         <input type="file" class="form-control file-upload" name="prod_thumb" placeholder="Hình đại diện" value="<?= $product['prod_thumb'] ?? '' ?>">
                         <span class="fa fa-file-image-o form-control-feedback right" aria-hidden="true"></span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row" style="text-align:center">
                         <div class="col-md-12 col-sm-12 offset-md-12">
