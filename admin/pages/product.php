@@ -1,8 +1,6 @@
 <?php
 include 'core/product-core.php';
 $post = loaddata('data/product.txt');
-
-// dd($post);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
