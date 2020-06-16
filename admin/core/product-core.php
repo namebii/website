@@ -47,7 +47,7 @@ $target_dir = 'uploads/';
 /* Hàm thêm sản phẩm */
 function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    $ext = '';
+    $ext = ''; 
     if (!$sku || !$prod_thumb || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
     } elseif (isset($post[$sku])) {
