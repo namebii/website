@@ -1,5 +1,6 @@
 <?php
 // Xử lý đọc file txt thành mảng như trên
+//cực vl
 function loaddata($path)
 {
     $file = fopen($path, 'r');
