@@ -1,7 +1,7 @@
 <?php
 include 'core/product-core.php';
 $post = loaddata('data/product.txt');
-// xemmang($_FILES);
+
 // dd($post);
 ?>
 <div class="right_col" role="main">
@@ -39,7 +39,7 @@ $post = loaddata('data/product.txt');
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-ma"><?= $sku ?></td>
-                                            <td class="table-hinh"><img src="<?=$structure.$post['prod_thumb']?>" width="50"></td>
+                                            <td class="table-hinh"><img src="<?=$target_dir.$post['prod_thumb']?>" width="50"></td>
                                             <td class="table-ten"><?= $prod['name'] ?></td>
                                             <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
                                             <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
