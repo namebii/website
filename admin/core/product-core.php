@@ -78,13 +78,13 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
             }
 
             // Đặt tên file ảnh
-            $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+            $thumb = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
             // Tạo thư mục image nếu chưa có
             // $target_dir = 'uploads/';
             // if (!is_dir($target_dir)){mkdir($target_dir,777);}
-            alert(move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $post['prod_thumb']) ? 'Upload thành công' : 'Có lỗi xảy ra');
+            alert(move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $thumb) ? 'Upload thành công' : 'Có lỗi xảy ra');
         }
-        $post[$sku] = ['prod_thumb' => $post['prod_thumb'], 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
+        $post[$sku] = ['prod_thumb' => $thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
         writedata('data/product.txt', $post);
         header('location: index.php?click=product');
     }
@@ -106,8 +106,10 @@ function sua($sku, $name, $old_price, $new_price, $prod_number, &$post)
 
 /* Hàm xoá sản phẩm */
 function xoa($sku, &$post)
-{
+{   
+    $target_dir = './images/uploads/';
     if (isset($post[$sku])) {
+        unlink($target_dir.$post[$sku]['prod_thumb']);
         unset($post[$sku]);
     } elseif ($sku == '') {
         alert('Bạn nhập thông tin chưa đầy đủ');
