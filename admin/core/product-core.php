@@ -95,7 +95,7 @@ function them($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
             // Đặt tên file ảnh
             $post['prod_thumb'] = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
 
-            // Tạo thư mục image nếu chưa có
+            // Tạo thư mục image nếu chưa có 
             if (!is_dir($target_dir)) {
                 mkdir($target_dir, 777);
             }
