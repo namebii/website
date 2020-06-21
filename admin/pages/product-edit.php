@@ -12,7 +12,7 @@ if (isset($post[$_GET['sku']])) {
 }
 // Tiến hành cập nhật dữ liệu
 if (isset($_POST['sku'])) {
-    sua($_POST['sku'],/*$_FILES['prod_thumb']['tmp_name'],*/ $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    edit($_POST['sku'],$_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
     $post = writedata('data/product.txt', $post);
     header('location: index.php?click=product');
 }
@@ -39,24 +39,24 @@ if (isset($_POST['sku'])) {
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $product['old_price'] ?? '' ?>">
+                        <input type="number" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $product['old_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $product['new_price'] ?? '' ?>">
+                        <input type="number" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $product['new_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $product['prod_number'] ?? '' ?>">
+                        <input type="number" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $product['prod_number'] ?? '' ?>">
                         <span class="fa fa-sort-numeric-asc form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
-                    <!-- <div class="col-md-6 col-sm-6  form-group">
-                        <input type="file" class="form-control file-upload" name="prod_thumb" placeholder="Hình đại diện" value="<?= $product['prod_thumb'] ?? '' ?>">
+                    <div class="col-md-6 col-sm-6  form-group">
+                        <input type="file" class="form-control file-upload" name="prod_thumb" placeholder="Hình đại diện">
                         <span class="fa fa-file-image-o form-control-feedback right" aria-hidden="true"></span>
-                    </div> -->
+                    </div>
 
                     <div class="form-group row" style="text-align:center">
                         <div class="col-md-12 col-sm-12 offset-md-12">

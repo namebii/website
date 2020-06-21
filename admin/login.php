@@ -3,27 +3,7 @@ include 'libs/functions.php';
 $alert = '';
 $errors['user'] = $errors['pass'] = '';
 
-function loaddata($path)
-{
-  $ar_acc = [];
-  $file_acc = fopen($path, 'r');
-  while (!feof($file_acc)) {
-    $str_acc = fgets($file_acc);
-    if (isset($str_acc)) {
-      $list_str_acc = explode('|*', $str_acc);
-      if (count($list_str_acc) == 5) {
-        $ar_acc[$list_str_acc[0]] = [
-          'username' => $list_str_acc[1],
-          'password' => $list_str_acc[2],
-          'name' => $list_str_acc[3],
-          'avatar' => trim($list_str_acc[4])
-        ];
-      }
-    }
-  }
-  fclose($file_acc);
-  return $ar_acc;
-}
+include 'core/user-core.php';
 
 // Kiểm tra Cookie
 if (isset($_COOKIE['login']) && $_COOKIE['login']) {

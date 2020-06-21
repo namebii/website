@@ -1,3 +1,5 @@
-01|*demo|*demo|*Taki|*images/avatar-1.jpg
-02|*demo1|*demo1|*Taki 1|*images/avatar-2.jpg
-03|*demo2|*demo2|*Taki 2|*images/avatar-3.jpg
+01|\|taki|\|123|\|Taki|\|Kun|\|avatar-20200621121745-301631.jpg|\|taki2kun@gmail.com|\|Administrator
+
+02|\|demo|\|123|\|Demo|\|Kun|\|avatar-20200621121918-215002.png|\|cafetoivn@gmail.com|\|Editor
+
+03|\|demo 1|\|123|\|Demo 1|\|Kun|\|avatar-20200621121950-232769.jpg|\|cafetoivn@gmail.com|\|Member

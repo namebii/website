@@ -22,10 +22,10 @@ $post = loaddata('data/product.txt');
                                     <tr>
                                         <th style="width:20px">Chọn</th>
                                         <th class="table-ma">Mã</th>
-                                        <th class="table-hinh">Hình Đại Diện</th>
-                                        <th class="table_ten">Tên</th>
-                                        <th class="table-dongia">Giá Gốc (VNĐ)</th>
-                                        <th class="table-dongia">Giá Khuyến Mại (VNĐ)</th>
+                                        <th class="table-thumb">Hình Đại Diện</th>
+                                        <th class="table-name">Tên</th>
+                                        <th class="table-price">Giá Gốc (VNĐ)</th>
+                                        <th class="table-price">Giá Khuyến Mại (VNĐ)</th>
                                         <th class="table-soluong">Số Lượng</th>
                                         <th class="table-hanhdong">Hành động</th>
                                     </tr>
@@ -36,11 +36,11 @@ $post = loaddata('data/product.txt');
                                     ?>
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
-                                            <td class="table-ma"><?= $sku ?></td>
-                                            <td class="table-hinh"><img src="images/uploads/<?=$prod['prod_thumb']?>" width="50"></td>
-                                            <td class="table-ten"><?= $prod['name'] ?></td>
-                                            <td class="table-dongia"><?= number_format($prod['old_price']) ?></td>
-                                            <td class="table-dongia"><?= number_format($prod['new_price']) ?></td>
+                                            <td class="table-sku"><?= $sku ?></td>
+                                            <td class="table-thumb"><img src="images/uploads/<?=$prod['prod_thumb']?>" style="width:120px;height:120px"></td>
+                                            <td class="table-name"><?= $prod['name'] ?></td>
+                                            <td class="table-price"><?= number_format($prod['old_price']) ?></td>
+                                            <td class="table-price"><?= number_format($prod['new_price']) ?></td>
                                             <td class="table-soluong"><?= number_format($prod['prod_number']) ?></td>
                                             <td style="padding:7px;text-align:center">
                                                 <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=product-show&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/show.png"></a>

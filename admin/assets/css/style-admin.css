@@ -1,3 +1,8 @@
+pre {
+    margin: 0 auto;
+    color: #fff;
+    width: 500px;
+}
 /*================================= Taki 404 =================================*/
 #taki-404{background:url('../../images/bg.png') no-repeat center center #1d1d1d;color:#eee;font-family:Corbel,Arial,Helvetica,sans-serif;font-size:13px;padding-top:50px;padding-bottom:50px;height:850px}
 #taki-404 #rocket{width:275px;height:375px;background:url('../../images/rocket.png') no-repeat;margin:0 auto 50px;position:relative}
@@ -26,17 +31,20 @@
 .navbar-right .dropdown-usermenu{top:24px!important}
 .hanh-dong-img{border:1px solid #BFBFBF;border-radius:5px;width:30px}
 .table-taki th{background:#26B99A;border-color:#36b49a;color:#fff;font-size:14px;}
-.table-taki th.table-ma{text-align:center;width:100px}
+.table-taki th.table-sku{text-align:center;width:100px}
 .table-taki th.table-thanhtien{text-align:right;width:200px}
-.table-taki th.table-soluong{text-align:center;width:100px}
-.table-taki th.table-dongia{text-align:right;width:200px}
+.table-taki th.table-thumb{text-align:center;width:100px}
+.table-taki th.table-price{text-align:right;width:200px}
 .table-taki td.table-ma{text-align:center}
 .table-taki td.table-thanhtien{text-align:right}
 .table-taki td.table-soluong{text-align:center}
-.table-taki td.table-dongia{text-align:right}
+.table-taki td.table-price{text-align:right}
 .table-taki .table-hanhdong{width:120px;text-align:center}
 .table-taki td.table-hinh{width:120px;text-align:center}
 .table-taki td.table-hinh img{width:100%}
+
+.table-taki th.table_email{width:300px}
+.table-taki th.table-role{width:200px}
 .site_title i{border:none;margin-right:5px!important}
 .site_title{font-size:18px!important}
 input.file-upload{padding:3.5px;float:right;text-align:right}
@@ -44,3 +52,4 @@ input.file-upload{padding:3.5px;float:right;text-align:right}
 .table-taki-1 input{border:1px solid #ddd;width:100%;height:25px}
 .table-taki-1 input[type="submit"]{width:48%;margin:0;padding:0;font-size:14px;height:25px}
 .btn{padding:4px 10px !important}
+.checkbox{position:relative;top:7px}

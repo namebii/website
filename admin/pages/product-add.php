@@ -2,7 +2,7 @@
 include 'core/product-core.php';
 if (isset($_POST['add_new'])) {
     $post = loaddata('data/product.txt');
-    them($_POST['sku'], $_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    add($_POST['sku'], $_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
 }
 ?>
 <div class="right_col" role="main">
@@ -27,17 +27,17 @@ if (isset($_POST['add_new'])) {
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $_POST['old_price'] ?? '' ?>">
+                        <input type="number" class="form-control has-feedback-left" name="old_price" placeholder="Giá gốc" value="<?= $_POST['old_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $_POST['new_price'] ?? '' ?>">
+                        <input type="number" class="form-control" name="new_price" placeholder="Giá khuyến mại" value="<?= $_POST['new_price'] ?? '' ?>">
                         <span class="fa fa-money form-control-feedback right" aria-hidden="true"></span>
                     </div>
 
                     <div class="col-md-6 col-sm-6  form-group">
-                        <input type="text" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $_POST['prod_number'] ?? '' ?>">
+                        <input type="number" class="form-control has-feedback-left" name="prod_number" placeholder="Số lượng" value="<?= $_POST['prod_number'] ?? '' ?>">
                         <span class="fa fa-sort-numeric-asc form-control-feedback left" aria-hidden="true"></span>
                     </div>
 

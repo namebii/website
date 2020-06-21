@@ -9,7 +9,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="<?= $_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
+                <img src="images/users/<?= $_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
@@ -65,8 +65,8 @@
                     </li>
                     <li><a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Quản lý thành viên</a></li>
-                            <li><a href="#">Thêm mới</a></li>
+                            <li><a href="index.php?click=users">Quản lý thành viên</a></li>
+                            <li><a href="index.php?click=user-add">Thêm mới</a></li>
                         </ul>
                     </li>
                     <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
