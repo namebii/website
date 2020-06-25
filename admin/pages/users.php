@@ -1,5 +1,5 @@
 <?php
-include 'core/user-core.php';
+include 'core/users-core.php';
 $ar_acc = loaddata('data/account.txt');
 ?>
 <div class="right_col" role="main">

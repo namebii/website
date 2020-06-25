@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><?= $_SESSION['user'] ?></h2>
+                <h2><?= $_SESSION['name'] ?></h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -35,13 +35,18 @@
                             <li><a href="#">Quản lý COD</a></li>
                         </ul>
                     </li> -->
-                    <li><a><i class="fa fa-archive"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
+                    <?php 
+                if ($role == 'Administrator' || $role == 'Editor') {
+                    echo 
+                    '<li><a><i class="fa fa-archive"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=product">Tất cả sản phẩm</a></li>
                             <li><a href="index.php?click=product-add">Thêm sản phẩm mới</a></li>
                             <li><a href="index.php?click=product-category">Danh mục</a></li>
                         </ul>
-                    </li>
+                    </li>';
+                }
+                ?>
                     <li><a><i class="fa fa-pencil-square-o"></i> Bài viết <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=post">Tất cả bài viết</a></li>
@@ -49,13 +54,21 @@
                             <li><a href="index.php?click=category">Chuyên mục</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-file-powerpoint-o"></i> Trang <span class="fa fa-chevron-down"></span></a>
+                <?php 
+                if ($role == 'Administrator' || $role == 'Editor') {
+                    echo 
+                    '<li><a><i class="fa fa-file-powerpoint-o"></i> Trang <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=pages">Tất cả các trang</a></li>
                             <li><a href="index.php?click=pages-add">Thêm trang mới</a></li>
                         </ul>
-                    </li>
-                    <li><a><i class="fa fa-desktop"></i> Giao diện <span class="fa fa-chevron-down"></span></a>
+                    </li>';
+                }
+                ?>
+                <?php 
+                if ($role == 'Administrator') {
+                    echo 
+                    '<li><a><i class="fa fa-desktop"></i> Giao diện <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=appearance">Quản lý giao diện</a></li>
                             <li><a href="index.php?click=theme-editor">Sửa giao diện</a></li>
@@ -63,12 +76,15 @@
                             <li><a href="index.php?click=menus">Menu</a></li>
                         </ul>
                     </li>
+                
                     <li><a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=users">Quản lý thành viên</a></li>
-                            <li><a href="index.php?click=user-add">Thêm mới</a></li>
+                            <li><a href="index.php?click=users-add">Thêm mới</a></li>
                         </ul>
-                    </li>
+                    </li>';
+                }
+                ?>
                     <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="form.html">General Form</a></li>

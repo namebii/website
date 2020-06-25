@@ -1,5 +1,5 @@
 <?php
-include 'core/user-core.php';
+include 'core/users-core.php';
 if (isset($_POST['add_new'])) {
   $ar_acc = loaddata('data/account.txt');
 //   if($_POST['alert']==1) {
@@ -35,7 +35,7 @@ if (isset($_POST['add_new'])) {
           <form class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
 
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">User ID <span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="userid">User ID <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6">
                 <input type="text" id="userid" name="userid" class="form-control" required="required">
@@ -95,9 +95,9 @@ if (isset($_POST['add_new'])) {
               <label class="col-form-label col-md-3 col-sm-3 label-align">Vai trò</label>
               <div class="col-md-6 col-sm-6">
                 <select class="form-control" name="role">
-                  <option value="Member">Thành viên</option>
-                  <option value="Editor">Biên tập viên</option>
-                  <option value="Administrator">Người quản lý</option>
+                  <option value="3">Thành viên</option>
+                  <option value="2">Biên tập viên</option>
+                  <option value="1">Người quản lý</option>
                 </select>
               </div>
             </div>

@@ -2,4 +2,4 @@
 
 02|\|demo|\|123|\|Demo|\|Kun|\|avatar-20200621121918-215002.png|\|cafetoivn@gmail.com|\|Editor
 
-03|\|demo 1|\|123|\|Demo 1|\|Kun|\|avatar-20200621121950-232769.jpg|\|cafetoivn@gmail.com|\|Member
+03|\|demo1|\|123|\|Demo 1|\|Kun|\|avatar-20200621121950-232769.jpg|\|cafetoivn@gmail.com|\|Contributor

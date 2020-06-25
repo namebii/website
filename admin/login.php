@@ -1,11 +1,9 @@
 <?php
 include 'libs/functions.php';
-$alert = '';
-$errors['user'] = $errors['pass'] = '';
-
+$alert = $errors['user'] = $errors['pass'] = '';
 include 'core/user-core.php';
 
-// Kiểm tra Cookie
+// Check Cookie
 if (isset($_COOKIE['login']) && $_COOKIE['login']) {
   $_SESSION['login'] = true;
   $_SESSION['name'] = $_COOKIE['name'];
@@ -32,7 +30,8 @@ if (isset($_POST['user'], $_POST['pass'])) {
   if ($userlogin) {
     // Bật Flag để làm điều kiện
     $_SESSION['login'] = true;
-    $_SESSION['user'] = $userlogin['name'];
+    $_SESSION['user'] = $userlogin['username'];
+    $_SESSION['name'] = $userlogin['firstname'] . " " . $userlogin['lastname'];
     $_SESSION['avatar'] = $userlogin['avatar'];
     if (isset($_POST['remember'])) {
       // Thêm yêu cầu lưu trạng thái đăng nhập      
