@@ -6,11 +6,11 @@ ob_start();
 // }
 include './check.php';
 $role = getRole();
-if ($role == 'Editor') {
-    header('location: index-2.php');
-} elseif (($role == 'Contributor')) {
-    header('location: index-3.php');
-}
+// if ($role == 'Editor') {
+//     header('location: index-2.php');
+// } elseif (($role == 'Contributor')) {
+//     header('location: index-3.php');
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
