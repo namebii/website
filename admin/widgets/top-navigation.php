@@ -9,7 +9,7 @@
         <h1 class="welcome">Chào mừng <span style="color:red "><?= $_SESSION['name'] ?></span> đã đăng nhập</h1>
         <li class="nav-item dropdown open" style="padding-left: 15px;">
           <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-            <img src="images/users/<?= $_SESSION['avatar'] ?>" alt="Avatar"><?= $_SESSION['name'] ?>
+            <img src="<?= $target_dir.$_SESSION['avatar'] ?>" alt="Avatar"><?= $_SESSION['name'] ?>
           </a>
           <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="javascript:;"> Profile</a>

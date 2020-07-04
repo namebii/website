@@ -1,20 +1,20 @@
 <?php
 if (!isset($_GET['sku']) ||  !$_GET['sku']) {
-    header('location: index.php?click=product');
+    header('location: index.php?click=products');
 }
-include 'core/product-core.php';
+include 'core/products-core.php';
 $post = loaddata('data/product.txt');
 $product = null;
 if (isset($post[$_GET['sku']])) {
     $product = $post[$_GET['sku']];
 } else {
-    header('location: index.php?click=product');
+    header('location: index.php?click=products');
 }
 // Tiến hành cập nhật dữ liệu
 if (isset($_POST['sku'])) {
-    edit($_POST['sku'],$_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    edit_product($_POST['sku'],$_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
     $post = writedata('data/product.txt', $post);
-    header('location: index.php?click=product');
+    header('location: index.php?click=products');
 }
 ?>
 <div class="right_col" role="main">

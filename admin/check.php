@@ -6,7 +6,7 @@ if (!islogin()) {
 }
 function getRole()
 {
-    $ar_acc = loaddata('data/account.txt');
+    $ar_acc = loaddata_user('data/account.txt');
     foreach ($ar_acc as $member) {
         if ($member['username'] == $_SESSION['user']) {
             return trim($member['role']);

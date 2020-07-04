@@ -1,12 +1,11 @@
 <?php
-include 'core/users-core.php';
-$ar_acc = loaddata('data/account.txt');
+$ar_acc = loaddata_user('data/account.txt');
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Danh sách thành viên <small></small></h2>
+                <h2>Danh sách thành viên</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a href="index.php?click=user-add" class="btn btn-success text-light">Thêm</a></li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>

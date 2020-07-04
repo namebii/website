@@ -15,7 +15,7 @@ if (islogin()) {
 }
 if (isset($_POST['user'], $_POST['pass'])) {
   // Thay phần kiểm tra dữ liệu
-  $users = loaddata('data/account.txt');
+  $users = loaddata_user('data/account.txt');
   // $flag = false;
   $userlogin = null;
 

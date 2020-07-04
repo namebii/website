@@ -1,7 +1,6 @@
 <?php
-include 'core/users-core.php';
 if (isset($_POST['add_new'])) {
-  $ar_acc = loaddata('data/account.txt');
+  $ar_acc = loaddata_user('data/account.txt');
 //   if($_POST['alert']==1) {
 //     $emailFrom = 'cafetoivn@gmail.com';
 //     $emailTo = $email;
@@ -15,7 +14,7 @@ if (isset($_POST['add_new'])) {
 //     // set our boolean completion value to TRUE
 //     $emailSent = true;
 // }
-  add($_POST['userid'], $_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['lastname'], $_FILES['avatar'],  $_POST['email'], $_POST['role'], $ar_acc);
+  add_user($_POST['userid'], $_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['lastname'], $_FILES['avatar'],  $_POST['email'], $_POST['role'], $ar_acc);
 }
 ?>
 <div class="right_col" role="main">

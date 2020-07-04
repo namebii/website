@@ -3,13 +3,12 @@
         <div class="navbar nav_title" style="border: 0;">
             <a href="../index.php" class="site_title" target="_blank"><i class="fa fa-desktop"></i> <span>Xem trang chủ</span></a>
         </div>
-
         <div class="clearfix"></div>
 
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="images/users/<?= $_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
+                <img src="<?= $target_dir.$_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
@@ -17,9 +16,7 @@
             </div>
         </div>
         <!-- /menu profile quick info -->
-
         <br />
-
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>Tổng quan</h3>
@@ -40,18 +37,18 @@
                     echo 
                     '<li><a><i class="fa fa-archive"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.php?click=product">Tất cả sản phẩm</a></li>
-                            <li><a href="index.php?click=product-add">Thêm sản phẩm mới</a></li>
-                            <li><a href="index.php?click=product-category">Danh mục</a></li>
+                            <li><a href="index.php?click=products">Tất cả sản phẩm</a></li>
+                            <li><a href="index.php?click=products-add">Thêm sản phẩm mới</a></li>
+                            <li><a href="index.php?click=products-categories">Danh mục</a></li>
                         </ul>
                     </li>';
                 }
                 ?>
                     <li><a><i class="fa fa-pencil-square-o"></i> Bài viết <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.php?click=post">Tất cả bài viết</a></li>
-                            <li><a href="index.php?click=post-add">Thêm bài viết mới</a></li>
-                            <li><a href="index.php?click=category">Chuyên mục</a></li>
+                            <li><a href="index.php?click=posts">Tất cả bài viết</a></li>
+                            <li><a href="index.php?click=posts-add">Thêm bài viết mới</a></li>
+                            <li><a href="index.php?click=categories">Chuyên mục</a></li>
                         </ul>
                     </li>
                 <?php 

@@ -1,8 +1,8 @@
 <?php
-include 'core/product-core.php';
+include 'core/products-core.php';
 if (isset($_POST['add_new'])) {
     $post = loaddata('data/product.txt');
-    add($_POST['sku'], $_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
+    add_product($_POST['sku'], $_FILES['prod_thumb'], $_POST['name'], $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $post);
 }
 ?>
 <div class="right_col" role="main">

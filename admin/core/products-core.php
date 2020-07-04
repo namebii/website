@@ -1,6 +1,6 @@
 <?php
 // Xử lý đọc file txt thành mảng như trên
-function loaddata($path)
+function loaddata_product($path)
 {
     $file = fopen($path, 'r');
     $post = [];
@@ -24,7 +24,7 @@ function loaddata($path)
 }
 
 // Xử lý ghi mảng ở trên thành file txt
-function writedata($path, $post)
+function writedata_product($path, $post)
 {
     $file = fopen($path, 'w');
     $content = '';
@@ -38,14 +38,14 @@ function writedata($path, $post)
     }
     fwrite($file, $content);
     fclose($file);
-    return loaddata($path);
+    return loaddata_product($path);
 }
 
-
+$target_dir = './images/products/';
 /* Hàm thêm sản phẩm */
-function add($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
+function add_product($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    $target_dir = './images/uploads/'; //Thư mục bạn sẽ lưu file upload
+    $target_dir = './images/products/'; //Thư mục bạn sẽ lưu file upload
     $ext = '';
     if (!$sku || !$prod_thumb || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
@@ -81,7 +81,7 @@ function add($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$p
             }
 
             // Đặt tên file ảnh
-            $thumb = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+            $thumb = 'products-'.date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
             // Tạo thư mục image nếu chưa có
 
             if (!is_dir($target_dir)) {
@@ -93,15 +93,15 @@ function add($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$p
             alert(move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir . $thumb) ? 'Upload thành công' : 'Có lỗi xảy ra');
         }
         $post[$sku] = ['prod_thumb' => $thumb, 'name' => $name, 'old_price' => $old_price, 'new_price' => $new_price, 'prod_number' => $prod_number];
-        writedata('data/product.txt', $post);
-        header('location: index.php?click=product');
+        writedata_product('data/product.txt', $post);
+        header('location: index.php?click=products');
     }
 }
 
 /* Hàm sửa sản phẩm */
-function edit($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
+function edit_product($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$post)
 {
-    $target_dir = './images/uploads/';
+    $target_dir = './images/products/';
     $ext = '';
     if (!$sku || !$prod_thumb || !$name || !$old_price || !$new_price || !$prod_number) {
         alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
@@ -135,7 +135,7 @@ function edit($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
         }
 
         // Đặt tên file ảnh
-        $thumb = date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+        $thumb = 'products-'.date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
         // Tạo thư mục image nếu chưa có
 
         if (!is_dir($target_dir)) {
@@ -152,9 +152,9 @@ function edit($sku, $prod_thumb, $name, $old_price, $new_price, $prod_number, &$
 }
 
 /* Hàm xoá sản phẩm */
-function remove($sku, &$post)
+function remove_product($sku, &$post)
 {
-    $target_dir = './images/uploads/';
+    $target_dir = './images/products/';
     if (isset($post[$sku])) {
         unlink($target_dir . $post[$sku]['prod_thumb']);
         unset($post[$sku]);

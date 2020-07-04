@@ -1,6 +1,6 @@
 <?php
 // Xử lý đọc file txt thành mảng như trên
-function loaddata($path)
+function loaddata_user($path)
 {
   $ar_acc = [];
   $file_acc = fopen($path, 'r');
@@ -26,7 +26,7 @@ function loaddata($path)
 }
 
 // Xử lý ghi mảng ở trên thành file txt
-function writedata($path, $ar_acc)
+function writedata_user($path, $ar_acc)
 {
   $file_acc = fopen($path, 'w');
   $content = '';
@@ -42,12 +42,12 @@ function writedata($path, $ar_acc)
   }
   fwrite($file_acc, $content);
   fclose($file_acc);
-  return loaddata($path);
+  return loaddata_user($path);
 }
 
 $target_dir = './images/users/'; //Thư mục bạn sẽ lưu file avatar
 /* Hàm thêm thành viên */
-function add($userid, $username, $password, $firstname, $lastname, $avatar, $email, $role, &$ar_acc)
+function add_user($userid, $username, $password, $firstname, $lastname, $avatar, $email, $role, &$ar_acc)
 {
   $target_dir = './images/users/'; //Thư mục bạn sẽ lưu file avatar
   $ext = '';
@@ -93,13 +93,13 @@ function add($userid, $username, $password, $firstname, $lastname, $avatar, $ema
       alert(move_uploaded_file($_FILES['avatar']['tmp_name'], $target_dir . $ava) ? 'Upload thành công' : 'Có lỗi xảy ra');
     }
     $ar_acc[$userid] = ['username' => $username, 'password' => $password, 'firstname' => $firstname, 'lastname' => $lastname, 'avatar' => $ava, 'email' => $email, 'role' => $role];
-    writedata('data/account.txt', $ar_acc);
+    writedata_user('data/account.txt', $ar_acc);
     header('location: index.php?click=users');
   }
 }
 
 /* Hàm xoá thành viên */
-function remove($userid, &$ar_acc)
+function remove_user($userid, &$ar_acc)
 {
   $target_dir = './images/users/';
   if (isset($ar_acc[$userid])) {
