@@ -1,6 +1,5 @@
 <?php
 include 'core/products-core.php';
-$post = loaddata_product('data/product.txt');
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
@@ -8,7 +7,7 @@ $post = loaddata_product('data/product.txt');
             <div class="x_title">
                 <h2>Tất cả sản phẩm</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="index.php?click=product-add" class="btn btn-success text-light">Thêm</a></li>
+                    <li><a href="index.php?click=products-add" class="btn btn-success text-light">Thêm</a></li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
@@ -32,16 +31,16 @@ $post = loaddata_product('data/product.txt');
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($post as $sku => $prod) {
+                                    foreach ($result as $prod) {
                                     ?>
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
-                                            <td class="table-sku"><?= $sku ?></td>
-                                            <td class="table-thumb"><img src="<?=$target_dir.$prod['prod_thumb']?>" style="width:120px;height:120px"></td>
-                                            <td class="table-name"><?= $prod['name'] ?></td>
-                                            <td class="table-price"><?= number_format($prod['old_price']) ?></td>
-                                            <td class="table-price"><?= number_format($prod['new_price']) ?></td>
-                                            <td class="table-soluong"><?= number_format($prod['prod_number']) ?></td>
+                                            <td class="table-sku"><?= $prod->id_view ?></td>
+                                            <td class="table-thumb"><img src="<?=$target_dir_prod.$prod->prod_thumb?>" style="width:120px;height:120px"></td>
+                                            <td class="table-name"><?= $prod->name ?></td>
+                                            <td class="table-price"><?= number_format($prod->old_price) ?></td>
+                                            <td class="table-price"><?= number_format($prod->new_price) ?></td>
+                                            <td class="table-soluong"><?= number_format($prod->prod_number) ?></td>
                                             <td style="padding:7px;text-align:center">
                                                 <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=products-show&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/show.png"></a>
                                                 <a data-toggle="tooltip" alt="Sửa" title="Sửa" href="index.php?click=products-edit&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/edit.png"></a>

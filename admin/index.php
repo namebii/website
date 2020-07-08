@@ -1,16 +1,8 @@
 <?php
 ob_start();
-// include 'libs/functions.php';
-// if (!islogin()) {
-//     header('location: login.php');
-// }
 include './check.php';
+include './connect.php';
 $role = getRole();
-// if ($role == 'Editor') {
-//     header('location: index-2.php');
-// } elseif (($role == 'Contributor')) {
-//     header('location: index-3.php');
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

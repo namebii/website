@@ -1,7 +1,16 @@
 <?php
 include 'libs/functions.php';
 $alert = $errors['user'] = $errors['pass'] = '';
-include 'core/users-core.php';
+
+try {
+  include 'connect.php';
+  $sql_user = 'select * from user';
+  $rs = $conn->query($sql_user);
+  $result = $rs->fetchAll(PDO::FETCH_OBJ);
+  $conn = null;
+} catch (PDOException $errors) {
+  exit('Kết nối dữ liệu thất bại: ' . $errors->getMessage());
+}
 
 // Check Cookie
 if (isset($_COOKIE['login']) && $_COOKIE['login']) {
@@ -9,18 +18,16 @@ if (isset($_COOKIE['login']) && $_COOKIE['login']) {
   $_SESSION['name'] = $_COOKIE['name'];
   $_SESSION['avatar'] = $_COOKIE['avatar'];
 }
-
 if (islogin()) {
   header('location:index.php');
 }
 if (isset($_POST['user'], $_POST['pass'])) {
   // Thay phần kiểm tra dữ liệu
-  $users = loaddata_user('data/account.txt');
-  // $flag = false;
-  $userlogin = null;
+  foreach ($result as $user) {
+    // $flag = false;
+    $userlogin = null;
 
-  foreach ($users as $user) {
-    if ($_POST['user'] == $user['username'] && $_POST['pass'] == $user['password']) {
+    if ($_POST['user'] == $user->username && $_POST['pass'] == $user->password) {
       //$flag = true;
       $userlogin = $user;
       break;
@@ -30,9 +37,9 @@ if (isset($_POST['user'], $_POST['pass'])) {
   if ($userlogin) {
     // Bật Flag để làm điều kiện
     $_SESSION['login'] = true;
-    $_SESSION['user'] = $userlogin['username'];
-    $_SESSION['name'] = $userlogin['firstname'] . " " . $userlogin['lastname'];
-    $_SESSION['avatar'] = $userlogin['avatar'];
+    $_SESSION['user'] = $_POST['user'];
+    $_SESSION['name'] = $userlogin->firstname . ' ' . $userlogin->lastname;
+    $_SESSION['avatar'] = $userlogin->avatar;
     if (isset($_POST['remember'])) {
       // Thêm yêu cầu lưu trạng thái đăng nhập      
       $time = time() + 86400; // Thời gian sống tuỳ chọn,  ví dụ: 1 ngày
@@ -42,7 +49,7 @@ if (isset($_POST['user'], $_POST['pass'])) {
     }
     header('location:index.php');
   } else {
-    $alert = 'Thông tin đăng nhập không đúng';
+    $alert = '<div class="alert alert-danger">Thông tin đăng nhập không đúng</div>';
   }
 
   if ($_POST['user'] == '') {

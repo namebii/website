@@ -1,5 +1,5 @@
 <?php
-$ar_acc = loaddata_user('data/account.txt');
+include 'core/users-core.php';
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
@@ -7,7 +7,7 @@ $ar_acc = loaddata_user('data/account.txt');
             <div class="x_title">
                 <h2>Danh sách thành viên</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="index.php?click=user-add" class="btn btn-success text-light">Thêm</a></li>
+                    <li><a href="index.php?click=users-add" class="btn btn-success text-light">Thêm</a></li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
@@ -29,14 +29,14 @@ $ar_acc = loaddata_user('data/account.txt');
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($ar_acc as $userid => $member) {
+                                    foreach ($result as $userid => $member) {
                                     ?>
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
-                                            <td class="table-username"><?=$member['username']?></td>
-                                            <td class="table-name"><?= $member['firstname'] ?></td>
-                                            <td class="table-email"><?= $member['email'] ?></td>
-                                            <td class="table-role"><?= $member['role'] ?></td>
+                                            <td class="table-username"><?=$member->username?></td>
+                                            <td class="table-name"><?= $member->firstname?></td>
+                                            <td class="table-email"><?= $member->email ?></td>
+                                            <td class="table-role"><?= $member->role ?></td>
                                             <td style="padding:7px;text-align:center">
                                                 <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=user-show&userid=<?= $userid ?>"><img class="hanh-dong-img" src="images/show.png"></a>
                                                 <a data-toggle="tooltip" alt="Sửa" title="Sửa" href="index.php?click=user-edit&userid=<?= $userid ?>"><img class="hanh-dong-img" src="images/edit.png"></a>

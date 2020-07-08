@@ -8,7 +8,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="<?= $target_dir_user.$_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
+                <img src="<?= $target_dir.$_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
@@ -32,18 +32,13 @@
                             <li><a href="#">Quản lý COD</a></li>
                         </ul>
                     </li> -->
-                    <?php 
-                if ($role == 'Administrator' || $role == 'Editor') {
-                    echo 
-                    '<li><a><i class="fa fa-archive"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-archive"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=products">Tất cả sản phẩm</a></li>
                             <li><a href="index.php?click=products-add">Thêm sản phẩm mới</a></li>
                             <li><a href="index.php?click=products-categories">Danh mục</a></li>
                         </ul>
-                    </li>';
-                }
-                ?>
+                    </li>
                     <li><a><i class="fa fa-pencil-square-o"></i> Bài viết <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=posts">Tất cả bài viết</a></li>
@@ -51,21 +46,13 @@
                             <li><a href="index.php?click=categories">Chuyên mục</a></li>
                         </ul>
                     </li>
-                <?php 
-                if ($role == 'Administrator' || $role == 'Editor') {
-                    echo 
-                    '<li><a><i class="fa fa-file-powerpoint-o"></i> Trang <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-file-powerpoint-o"></i> Trang <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=pages">Tất cả các trang</a></li>
                             <li><a href="index.php?click=pages-add">Thêm trang mới</a></li>
                         </ul>
-                    </li>';
-                }
-                ?>
-                <?php 
-                if ($role == 'Administrator') {
-                    echo 
-                    '<li><a><i class="fa fa-desktop"></i> Giao diện <span class="fa fa-chevron-down"></span></a>
+                    </li>
+                <li><a><i class="fa fa-desktop"></i> Giao diện <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.php?click=appearance">Quản lý giao diện</a></li>
                             <li><a href="index.php?click=theme-editor">Sửa giao diện</a></li>
@@ -79,9 +66,7 @@
                             <li><a href="index.php?click=users">Quản lý thành viên</a></li>
                             <li><a href="index.php?click=users-add">Thêm mới</a></li>
                         </ul>
-                    </li>';
-                }
-                ?>
+                    </li>
                     <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="form.html">General Form</a></li>
