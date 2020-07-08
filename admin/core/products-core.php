@@ -14,9 +14,9 @@ function add_product($id, $id_view, $id_categories, $id_supplier, $id_brand, $na
     foreach ($result as $prod) {
         if (!$id_view || !$id_categories || !$id_supplier || !$id_brand || !$name || !$prod_thumb || !$old_price || !$new_price || !$prod_number || !$description || !$detail || !$detail_thumb) {
             alert('Bạn nhập thông tin không đúng xin vui lòng kiểm tra lại');
-        } elseif (isset($prod->ids)) {
+        } /* elseif (isset($prod->ids)) {
             alert('Sản phẩm đã tồn tại');
-        } elseif ($new_price > $old_price) {
+        }*/ elseif ($new_price > $old_price) {
             alert('Giá khuyến mại phải nhỏ hơn giá niêm yết');
         } else {
             if (isset($_FILES['prod_thumb'], $_FILES['detail_thumb'])) {
@@ -46,8 +46,8 @@ function add_product($id, $id_view, $id_categories, $id_supplier, $id_brand, $na
                 // Đặt tên file ảnh
                 $thumb_p = 'prod_thumb-' . date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
                 $thumb_d = 'detail_thumb-' . date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+                
                 // Tạo thư mục image nếu chưa có
-
                 if (!is_dir($target_dir_prod)) {
                     mkdir($target_dir_prod, 777);
                 }
@@ -59,7 +59,7 @@ function add_product($id, $id_view, $id_categories, $id_supplier, $id_brand, $na
             }
             $sql_prod = "INSERT INTO `product`(`id`,`id_view`,`id_categories`,`id_supplier`,`id_brand`,`name`,`prod_thumb`,`old_price`,`new_price`,`prod_number`,`description`,`detail`,`detail_thumb`) VALUES ($id,$id_view, $id_categories, $id_supplier, $id_brand, $name, $thumb_p, $old_price, $new_price, $prod_number, $description, $detail, $thumb_d)";
             $rs = $conn->exec($sql_prod);
-            $rs->fetchAll(PDO::FETCH_OBJ);
+            // $rs->fetchAll(PDO::FETCH_OBJ);
 
             header('location: index.php?click=products');
         }
