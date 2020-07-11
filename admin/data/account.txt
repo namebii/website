@@ -1,7 +1,0 @@
-01|\|taki|\|123|\|Taki|\|Kun|\|avatar-20200621121745-301631.jpg|\|taki2kun@gmail.com|\|Administrator
-
-02|\|demo|\|123|\|Demo|\|Kun|\|avatar-20200621121918-215002.png|\|cafetoivn@gmail.com|\|Editor
-
-03|\|demo1|\|123|\|Demo 1|\|Kun|\|avatar-20200621121950-232769.jpg|\|cafetoivn@gmail.com|\|Contributor
-
-1|\|demo2|\|123|\|Taki|\|Kun|\|avatar-20200705052105-107728.png|\|cafetoivn@gmail.com|\|Contributor

@@ -29,7 +29,7 @@ include 'core/users-core.php';
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($result as $userid => $member) {
+                                    foreach ($load_member as $userid => $member) {
                                     ?>
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>

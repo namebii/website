@@ -1,8 +1,11 @@
 <?php
 ob_start();
-include './check.php';
-include './connect.php';
-$role = getRole();
+include 'libs/functions.php'; // Load các hàm islogin, Upload: admin/libs/functions.php
+include './core/database.php'; // Load database: admin/core/database.php
+include './widgets/path.php'; // Load path image
+// include './check.php'; // Load Check Role
+
+// $role = getRole();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +17,7 @@ $role = getRole();
         <div class="main_container">
 
             <!-- sidebar menu -->
-            <?include 'widgets/menu.php'?>
+            <?include 'widgets/menutest.php'?>
             <!-- /sidebar menu -->
 
             <!-- top navigation -->

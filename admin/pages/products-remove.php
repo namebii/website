@@ -1,15 +1,19 @@
-<?php 
-include 'core/products-core.php';
-$post = loaddata('data/product.txt');
-if(!isset($_GET['sku'])||  !$_GET['sku'])
+<?php
+include './core/products-core.php';
+include './widget/path.php';
+if(!isset($_GET['id']) || !$_GET['id'])
 {
     header('location: index.php?click=products');
 }
-// Tiến hành cập nhật dữ liệu
-if(isset($_GET['sku']))
-{
-    remove_product($_GET['sku'],$post);
-    $post = writedata('data/product.txt',$post);
-    header('location: index.php?click=products');
+$obj_prod = new product();
+
+$id = $_GET['id'];  
+if (isset($_GET['id'])) {      
+    $array = [
+        $_POST['id_view'], $_POST['id_categories'], $_POST['id_supplier'], $_POST['id_brand'], $_POST['name'], $path_prod, $_POST['old_price'], $_POST['new_price'], $_POST['prod_number'], $_POST['description'], $_POST['detail'], $path_detail,$_POST['status'],$date_create
+    ];    
+    // unlink();
+
+    $obj_prod->setquery("DELETE FROM `product` WHERE `id` = $id")->prod_action($array);
+    
 }
-?>

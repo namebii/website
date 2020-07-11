@@ -1,78 +1,39 @@
 <?php
-include 'libs/functions.php';
-$alert = $errors['user'] = $errors['pass'] = '';
+include './libs/functions.php'; // Load hàm islogin: admin/libs/functions.php
+include './core/database.php'; // Load database: admin/core/database.php
+include './core/users-core.php'; // Load truy vấn user: admin/core/class-user.php
 
-try {
-  include 'connect.php';
-  $sql_user = 'select * from user';
-  $rs = $conn->query($sql_user);
-  $result = $rs->fetchAll(PDO::FETCH_OBJ);
-  $conn = null;
-} catch (PDOException $errors) {
-  exit('Kết nối dữ liệu thất bại: ' . $errors->getMessage());
-}
-
-// Check Cookie
-if (isset($_COOKIE['login']) && $_COOKIE['login']) {
-  $_SESSION['login'] = true;
-  $_SESSION['name'] = $_COOKIE['name'];
-  $_SESSION['avatar'] = $_COOKIE['avatar'];
-}
-if (islogin()) {
-  header('location:index.php');
-}
 if (isset($_POST['user'], $_POST['pass'])) {
-  // Thay phần kiểm tra dữ liệu
-  foreach ($result as $user) {
-    // $flag = false;
-    $userlogin = null;
-
-    if ($_POST['user'] == $user->username && $_POST['pass'] == $user->password) {
-      //$flag = true;
-      $userlogin = $user;
-      break;
-    }
-  }
+  $object = new user();
+  $userlogin = $object->login($_POST['user'], $_POST['pass']);
 
   if ($userlogin) {
-    // Bật Flag để làm điều kiện
     $_SESSION['login'] = true;
     $_SESSION['user'] = $_POST['user'];
     $_SESSION['name'] = $userlogin->firstname . ' ' . $userlogin->lastname;
     $_SESSION['avatar'] = $userlogin->avatar;
-    if (isset($_POST['remember'])) {
-      // Thêm yêu cầu lưu trạng thái đăng nhập      
-      $time = time() + 86400; // Thời gian sống tuỳ chọn,  ví dụ: 1 ngày
+    if (isset($_POST['remember'])) { 
+      $time = time() + 86400; // Thời gian sống Cookie 1 ngày
       setcookie('login', true, $time);
       setcookie('name', $_SESSION['name'], $time);
       setcookie('avatar', $_SESSION['avatar'], $time);
     }
     header('location:index.php');
-  } else {
-    $alert = '<div class="alert alert-danger">Thông tin đăng nhập không đúng</div>';
-  }
-
-  if ($_POST['user'] == '') {
-    $errors['user'] = 'Bạn chưa nhập User Name';
-  }
-  if ($_POST['pass'] == '') {
-    $errors['pass'] = 'Bạn chưa nhập Password';
-  }
+  }else{$alert='<div class="alert alert-danger">Thông tin đăng nhập không đúng</div>';}
+  if($_POST['user']==''){$errors['user']='Bạn chưa nhập User Name';} 
+  if($_POST['pass']==''){$errors['pass']='Bạn chưa nhập Password';}
 }
-
+$userlogin = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Login | Taki's Web</title>
-
   <!-- Bootstrap -->
   <link href="template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -81,11 +42,9 @@ if (isset($_POST['user'], $_POST['pass'])) {
   <link href="template/vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- Animate.css -->
   <link href="template/vendors/animate.css/animate.min.css" rel="stylesheet">
-
   <!-- Custom Theme Style -->
   <link href="template/build/css/custom.min.css" rel="stylesheet">
 </head>
-
 <body class="login">
   <div>
     <a class="hiddenanchor" id="signup"></a>
@@ -173,5 +132,4 @@ if (isset($_POST['user'], $_POST['pass'])) {
     </div>
   </div>
 </body>
-
 </html>

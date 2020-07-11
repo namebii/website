@@ -10,7 +10,8 @@
   height: $input-height;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
-  @include font-size($input-font-size);
+//   @include font-size($input-font-size);
+  font-size:14px;
   font-weight: $input-font-weight;
   line-height: $input-line-height;
   color: $input-color;
@@ -201,8 +202,10 @@ textarea.form-control {
 
 .form-check {
   position: relative;
-  display: block;
-  padding-left: $form-check-input-gutter;
+  padding-left: 30px;
+  display: inline-block;
+  padding-right: 10px;
+  
 }
 
 .form-check-input {

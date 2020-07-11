@@ -1,5 +1,8 @@
 <?php
 include 'core/products-core.php';
+$obj_prod = new product();
+$load_prod = $obj_prod->loads_product();
+vardump($path_prod);
 ?>
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 ">
@@ -31,20 +34,20 @@ include 'core/products-core.php';
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($result as $prod) {
+                                    foreach ($load_prod as $prod) {
                                     ?>
                                         <tr>
                                             <td style="text-align:center"><input type="checkbox" name="choose" value="checkedValue"></td>
                                             <td class="table-sku"><?= $prod->id_view ?></td>
-                                            <td class="table-thumb"><img src="<?=$target_dir_prod.$prod->prod_thumb?>" style="width:120px;height:120px"></td>
+                                            <td class="table-thumb"><img src="<?= $prod->prod_thumb ?>" style="width:120px;height:120px"></td>
                                             <td class="table-name"><?= $prod->name ?></td>
                                             <td class="table-price"><?= number_format($prod->old_price) ?></td>
                                             <td class="table-price"><?= number_format($prod->new_price) ?></td>
                                             <td class="table-soluong"><?= number_format($prod->prod_number) ?></td>
                                             <td style="padding:7px;text-align:center">
-                                                <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=products-show&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/show.png"></a>
-                                                <a data-toggle="tooltip" alt="Sửa" title="Sửa" href="index.php?click=products-edit&sku=<?= $sku ?>"><img class="hanh-dong-img" src="images/edit.png"></a>
-                                                <a data-toggle="tooltip" alt="Xóa" title="Xóa" href="index.php?click=products-remove&sku=<?= $sku ?>" onclick="return confirm('Bạn có muốn xóa hay không')"><img class="hanh-dong-img" src="images/delete.png"></a>
+                                                <a data-toggle="tooltip" alt="Xem" title="Xem" href="index.php?click=products-show&id=<?= $prod->id  ?>"><img class="hanh-dong-img" src="images/show.png"></a>
+                                                <a data-toggle="tooltip" alt="Sửa" title="Sửa" href="index.php?click=products-edit&id=<?= $prod->id  ?>"><img class="hanh-dong-img" src="images/edit.png"></a>
+                                                <a data-toggle="tooltip" alt="Xóa" title="Xóa" href="index.php?click=products-remove&id=<?= $prod->id  ?>" onclick="return confirm('Bạn có muốn xóa hay không')"><img class="hanh-dong-img" src="images/delete.png"></a>
                                             </td>
                                         </tr>
                                     <?php

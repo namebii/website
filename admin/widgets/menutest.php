@@ -8,7 +8,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="<?= $target_dir.$_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
+                <img src="<?= $target_dir_user.$_SESSION['avatar'] ?>" alt="Avatar" class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>

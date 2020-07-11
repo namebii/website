@@ -50,6 +50,12 @@ function xemmang($array)
 {
     echo '<pre>',print_r($array),'</pre>';
 }
+
+function vardump($array){
+    echo '<pre>',var_dump($array),'</pre>';
+}
+
+
 /* Hàm thông báo lỗi lên màn hình */
 function alert($message) {
     echo "<script>alert('$message');</script>"; 
@@ -66,6 +72,49 @@ function islogin()
     }
     return false;
 }
+
+// /* Hàm upload file */
+// function upload(){
+//     if (isset($_FILES['prod_thumb'], $_FILES['detail_thumb'])) {
+//         // Lấy ra đuôi ảnh
+//         switch ($_FILES['prod_thumb']['type'] && $_FILES['detail_thumb']['type']) {
+//             case 'image/jpeg':
+//                 $ext = 'jpg';
+//                 break;
+//             case 'image/png':
+//                 $ext = 'png';
+//                 break;
+//             case 'image/gif':
+//                 $ext = 'gif';
+//                 break;
+//         }
+//         // Chỉ cho phép upload file ảnh JPG/JPEG, PNG hoac GIF
+//         if ($ext == '') {
+//             alert('Không cho phép upload file khác các đuôi sau: JPG, PNG, GIF');
+//             exit;
+//         }
+//         $maxfilesize   = 10485760; //10(MB)
+//         // Kiểm tra kích thước file upload cho vượt quá giới hạn cho phép
+//         if ($_FILES['prod_thumb']['size'] > $maxfilesize || $_FILES['detail_thumb']['size'] > $maxfilesize) {
+//             alert('Không được upload ảnh lớn hơn ' . $maxfilesize . ' (bytes)');
+//         }
+    
+//         // Đặt tên file ảnh
+//         $thumb_p = 'prod_thumb-' . date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+//         $thumb_d = 'detail_thumb-' . date('YmdHis') . '-' . rand(100000, 999999) . '.' . $ext;
+    
+//         // Tạo thư mục image nếu chưa có
+//         if (!is_dir($target_dir_prod)) {
+//             mkdir($target_dir_prod, 777);
+//         }
+//         // chmod($target_dir_prod, 777);   // decimal; probably incorrect
+//         // chmod($target_dir_prod, "u+rwx,go+rx"); // string; incorrect
+//         // chmod($target_dir_prod, 0777);  // octal; correct value of mode
+//         alert(move_uploaded_file($_FILES['prod_thumb']['tmp_name'], $target_dir_prod . $thumb_p) ? 'Upload thành công' : 'Có lỗi xảy ra');
+//         alert(move_uploaded_file($_FILES['detail_thumb']['tmp_name'], $target_dir_prod . $thumb_d) ? 'Upload thành công' : 'Có lỗi xảy ra');
+//     }
+// }
+
 
 /* Hàm cắt nội dung */
 function catnoidung($len, $string)
